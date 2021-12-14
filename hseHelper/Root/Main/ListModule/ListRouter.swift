@@ -12,5 +12,7 @@ final class ListRouter {
 }
 
 extension ListRouter: ListRouterInput {
-
+    func showThemesVC() {
+        viewController?.present(ThemesViewController(), animated: true, completion: nil)
+    }
 }

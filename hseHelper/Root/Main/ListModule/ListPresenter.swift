@@ -25,7 +25,13 @@ extension ListPresenter: ListModuleInput {
 }
 
 extension ListPresenter: ListViewOutput {
-
+    func viewDidLoad() {
+        view?.setData(with: data)
+    }
+    
+    func showVC() {
+        router.showThemesVC()
+    }
 }
 
 extension ListPresenter: ListInteractorOutput {
@@ -33,4 +39,20 @@ extension ListPresenter: ListInteractorOutput {
 }
 
 
+private let data = ListModel(
+    lastTheme: "Последняя тема",
+    themes: themes
+)
 
+private let themes = [
+    ThemeModel(themeName: "Здесь будет ваша тема 1"),
+    ThemeModel(themeName: "Здесь будет ваша тема 2"),
+    ThemeModel(themeName: "Здесь будет ваша тема 3"),
+    ThemeModel(themeName: "Здесь будет ваша тема 4"),
+    ThemeModel(themeName: "Здесь будет ваша тема 5"),
+    ThemeModel(themeName: "Здесь будет ваша тема 6"),
+    ThemeModel(themeName: "Здесь будет ваша тема 7"),
+    ThemeModel(themeName: "Здесь будет ваша тема 8"),
+    ThemeModel(themeName: "Здесь будет ваша тема 9"),
+    ThemeModel(themeName: "Здесь будет ваша тема 10"),
+]
