@@ -13,7 +13,7 @@ final class ListContainer {
     private(set) weak var router: ListRouterInput!
 
     class func assemble(with context: ListModuleContext) -> ListContainer {
-        let router = ListRouter()
+        let router = ListRouter(presentAction: context.presentAction)
         let interactor = ListInteractor()
         let presenter = ListPresenter(router: router, interactor: interactor)
         let viewController = ListViewController(output: presenter)
@@ -36,5 +36,6 @@ final class ListContainer {
 }
 
 struct ListModuleContext {
+    let presentAction: (UIViewController) -> Void
     weak var moduleOutput: ListModuleOutput?
 }

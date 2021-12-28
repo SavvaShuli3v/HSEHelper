@@ -16,11 +16,12 @@ protocol ListModuleOutput: AnyObject {
 }
 
 protocol ListViewInput: AnyObject {
-    
+    func setData(with data: ListModel)
 }
 
 protocol ListViewOutput: AnyObject {
-    
+    func viewDidLoad()
+    func showVC()
 }
 
 protocol ListInteractorInput: AnyObject {
@@ -32,5 +33,5 @@ protocol ListInteractorOutput: AnyObject {
 }
 
 protocol ListRouterInput: AnyObject {
-    
+    func showThemesVC()
 }
