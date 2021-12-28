@@ -13,7 +13,13 @@ final class AppCoordinator {
     private let navigationController = UINavigationController()
     
     func startWithList() {
-        let context = ListModuleContext(moduleOutput: nil)
+        let context = ListModuleContext(
+            presentAction: { [weak navigationController] in
+                print($0)
+                navigationController?.pushViewController($0, animated: true)
+            },
+            moduleOutput: nil
+        )
         let container = ListContainer.assemble(with: context)
         
         navigationController.viewControllers = [container.viewController]
@@ -21,13 +27,7 @@ final class AppCoordinator {
         window.makeKeyAndVisible()
     }
     
-    func showNextView() {
-        let vc = ThemesViewController()
-        navigationController.pushViewController(vc, animated: true)
-    }
-    
-    func showThemes(completion: @escaping () -> Void) {
-        let vc = ThemesViewController()
-        navigationController.pushViewController(vc, animated: true)
+    func showNewVC(vc viewController: UIViewController) {
+        //let vc = viewController
     }
 }

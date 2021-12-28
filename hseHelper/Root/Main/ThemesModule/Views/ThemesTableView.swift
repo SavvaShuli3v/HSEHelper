@@ -1,19 +1,18 @@
 //
-//  ListTableView.swift
+//  ThemesTableView.swift
 //  hseHelper
 //
-//  Created by Савва Шулятьев on 13.12.2021.
+//  Created by Савва Шулятьев on 23.12.2021.
 //
 
 import UIKit
 
-protocol ListTableViewDelegate: AnyObject {
+protocol ThemesTableViewDelegate: AnyObject {
     func tappedToCell(with indexPath: IndexPath)
-    func scrollViewDidScroll()
 }
 
-final class ListTableView: UITableView {
-    weak var answerDelegate: ListTableViewDelegate?
+final class ThemesTableView: UITableView {
+    weak var answerDelegate: ThemesTableViewDelegate?
     
     private var themes = [ThemeModel]()
     
@@ -30,12 +29,8 @@ final class ListTableView: UITableView {
         true
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        answerDelegate?.scrollViewDidScroll()
-    }
-    
-    func setData(with data: ListModel) {
-        themes = data.themes
+    func setData() {
+        
     }
     
     private func setupTableView() {
@@ -46,15 +41,17 @@ final class ListTableView: UITableView {
         dataSource = self
         delegate = self
         
-        register(ListTableViewCell.self)
+        register(ThemeImageTableViewCell.self)
+        register(ThemesTableViewCell.self)
         register(TableViewTextCell.self)
-        register(LastNewsTableViewCell.self)
+        register(StartArticleTableViewCell.self)
+        register(AboutArticleTableViewCell.self)
     }
 }
 
-extension ListTableView: UITableViewDataSource {
+extension ThemesTableView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        4
+        5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,7 +63,9 @@ extension ListTableView: UITableViewDataSource {
         case 2:
             return 1
         case 3:
-            return themes.count
+            return 1
+        case 4:
+            return 6
         default:
             preconditionFailure()
         }
@@ -75,20 +74,21 @@ extension ListTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            let cell: TableViewTextCell = dequeueReusableCell(for: indexPath)
-            cell.setText(with: "Коротко о главном")
+            let cell: ThemeImageTableViewCell = dequeueReusableCell(for: indexPath)
             return cell
         case 1:
-            let cell: LastNewsTableViewCell = dequeueReusableCell(for: indexPath)
+            let cell: AboutArticleTableViewCell = dequeueReusableCell(for: indexPath)
             return cell
         case 2:
-            let cell: TableViewTextCell = dequeueReusableCell(for: indexPath)
-            cell.setText(with: "Самое важное")
+            let cell: StartArticleTableViewCell = dequeueReusableCell(for: indexPath)
             return cell
         case 3:
-            let cell: ListTableViewCell = dequeueReusableCell(for: indexPath)
-            cell.delegate = self
-            cell.setData(with: themes[indexPath.row])
+            let cell: TableViewTextCell = dequeueReusableCell(for: indexPath)
+            cell.setText(with: "Темы")
+            return cell
+        case 4:
+            let cell: ThemesTableViewCell = dequeueReusableCell(for: indexPath)
+            cell.setData(with: ArticleModel(name: "Article name"), indexPath: indexPath)
             return cell
         default:
             preconditionFailure()
@@ -96,17 +96,19 @@ extension ListTableView: UITableViewDataSource {
     }
 }
 
-extension ListTableView: UITableViewDelegate {
+extension ThemesTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 60
+            return 180
         case 1:
-            return 220
+            return 120
         case 2:
-            return 60
+            return 90
         case 3:
-            return 74
+            return 46
+        case 4:
+            return 62
         default:
             preconditionFailure()
         }
@@ -114,11 +116,5 @@ extension ListTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
-    }
-}
-
-extension ListTableView: ListTableViewCellProtocol {
-    func cellTapped() {
-        answerDelegate?.tappedToCell(with: IndexPath(item: 10, section: 10))
     }
 }

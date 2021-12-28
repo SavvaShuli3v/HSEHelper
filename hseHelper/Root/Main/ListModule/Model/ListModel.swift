@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct ListModel {
     var lastTheme: String
@@ -14,4 +15,6 @@ struct ListModel {
 
 struct ThemeModel {
     var themeName: String
+    var additionalInf: String?
+    var image: UIImage?
 }

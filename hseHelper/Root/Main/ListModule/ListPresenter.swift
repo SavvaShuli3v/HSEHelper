@@ -45,14 +45,16 @@ private let data = ListModel(
 )
 
 private let themes = [
-    ThemeModel(themeName: "Здесь будет ваша тема 1"),
-    ThemeModel(themeName: "Здесь будет ваша тема 2"),
-    ThemeModel(themeName: "Здесь будет ваша тема 3"),
-    ThemeModel(themeName: "Здесь будет ваша тема 4"),
-    ThemeModel(themeName: "Здесь будет ваша тема 5"),
-    ThemeModel(themeName: "Здесь будет ваша тема 6"),
-    ThemeModel(themeName: "Здесь будет ваша тема 7"),
-    ThemeModel(themeName: "Здесь будет ваша тема 8"),
-    ThemeModel(themeName: "Здесь будет ваша тема 9"),
-    ThemeModel(themeName: "Здесь будет ваша тема 10"),
+    ThemeModel(themeName: "Сдаем БЖД на 10", additionalInf: "Новое"),
+    ThemeModel(themeName: "Оценки и накоп", additionalInf: "Самое важное"),
+    ThemeModel(themeName: "Rарта Москвича", additionalInf: "В первую очередь"),
+    ThemeModel(themeName: "Все о ЛМС"),
+    ThemeModel(themeName: "О документах для студентов и что они дают"),
+    ThemeModel(themeName: "Как поступить на военку"),
+    ThemeModel(themeName: "Коворкинги"),
+    ThemeModel(themeName: "Большая статья О Вышке"),
+    ThemeModel(themeName: "Выбираем лучший майнор"),
+    ThemeModel(themeName: "Лучший кофе - где он", additionalInf: "Новинка"),
+    ThemeModel(themeName: "О документах для студентов и что они дают"),
+    ThemeModel(themeName: "Рейтинг, или как не сойти с ума")
 ]
