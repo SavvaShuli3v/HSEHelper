@@ -7,11 +7,18 @@
 
 import UIKit
 
+protocol ThemesTableViewCellProtocol: AnyObject {
+    func showArticle()
+}
+
 final class ThemesTableViewCell: UITableViewCell {
+    
+    weak var delegate: ThemesTableViewCellProtocol?
     
     private lazy var themeLabel = makeMainLabel()
     private lazy var lineView = makeLine()
     private lazy var numberLabel = makeNumber()
+    private lazy var mainButton = makeMainButton()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -20,6 +27,11 @@ final class ThemesTableViewCell: UITableViewCell {
         addSubview(themeLabel)
         addSubview(lineView)
         addSubview(numberLabel)
+        contentView.addSubview(mainButton)
+        
+        mainButton.setAction { [weak self] in
+            self?.delegate?.showArticle()
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -47,6 +59,11 @@ final class ThemesTableViewCell: UITableViewCell {
             origin: CGPoint(x: 16, y: 22),
             size: CGSize(width: 20, height: 18)
         )
+        
+        mainButton.frame = CGRect(
+            origin: CGPoint(x: 0, y: 0),
+            size: CGSize(width: bounds.width, height: bounds.height - 1)
+        )
     }
 }
 
@@ -73,4 +90,10 @@ private func makeNumber() -> UILabel {
     label.textColor = AppColors.white
     label.text = "1."
     return label
+}
+
+private func makeMainButton() -> TableViewButton {
+    let button = TableViewButton()
+    button.backgroundColor = .clear
+    return button
 }

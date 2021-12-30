@@ -26,16 +26,25 @@ extension ListPresenter: ListModuleInput {
 
 extension ListPresenter: ListViewOutput {
     func viewDidLoad() {
+        interactor.isAppAlreadyLaunchedOnce()
         view?.setData(with: data)
     }
     
-    func showVC() {
+    func showThemeVC() {
         router.showThemesVC()
+    }
+    
+    func showProfileVC() {
+        router.showProfileVC()
     }
 }
 
 extension ListPresenter: ListInteractorOutput {
-
+    func isAppAlreadyLaunchedOnceAnswer(with answer: Bool) {
+        if !answer {
+            view?.openIntroOfApp()
+        }
+    }
 }
 
 

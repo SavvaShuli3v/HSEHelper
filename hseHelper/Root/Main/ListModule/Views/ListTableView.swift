@@ -49,12 +49,13 @@ final class ListTableView: UITableView {
         register(ListTableViewCell.self)
         register(TableViewTextCell.self)
         register(LastNewsTableViewCell.self)
+        register(FutureTableViewCell.self)
     }
 }
 
 extension ListTableView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        4
+        5
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -66,6 +67,8 @@ extension ListTableView: UITableViewDataSource {
         case 2:
             return 1
         case 3:
+            return themes.count
+        case 4:
             return themes.count
         default:
             preconditionFailure()
@@ -80,6 +83,7 @@ extension ListTableView: UITableViewDataSource {
             return cell
         case 1:
             let cell: LastNewsTableViewCell = dequeueReusableCell(for: indexPath)
+            cell.delegate = self
             return cell
         case 2:
             let cell: TableViewTextCell = dequeueReusableCell(for: indexPath)
@@ -88,6 +92,10 @@ extension ListTableView: UITableViewDataSource {
         case 3:
             let cell: ListTableViewCell = dequeueReusableCell(for: indexPath)
             cell.delegate = self
+            cell.setData(with: themes[indexPath.row])
+            return cell
+        case 4:
+            let cell: FutureTableViewCell = dequeueReusableCell(for: indexPath)
             cell.setData(with: themes[indexPath.row])
             return cell
         default:
@@ -102,18 +110,22 @@ extension ListTableView: UITableViewDelegate {
         case 0:
             return 60
         case 1:
-            return 220
+            return 250
         case 2:
             return 60
         case 3:
+            return 74
+        case 4:
             return 74
         default:
             preconditionFailure()
         }
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
+}
+
+extension ListTableView: LastNewsTableViewCellProtocol {
+    func showThemeFromLastNews() {
+        answerDelegate?.tappedToCell(with: IndexPath(item: 10, section: 10))
     }
 }
 

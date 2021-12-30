@@ -18,4 +18,5 @@ enum AppColors {
     static let white: UIColor = .rgba(255, 255, 255)
     static let lightGray: UIColor = .lightGray
     static let lightPurple: UIColor = .rgba(98, 98, 220)
+    static let gray: UIColor = .rgba(44, 44, 44)
 }

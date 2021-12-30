@@ -36,6 +36,6 @@ final class ListContainer {
 }
 
 struct ListModuleContext {
-    let presentAction: (UIViewController) -> Void
+    let presentAction: () -> Void
     weak var moduleOutput: ListModuleOutput?
 }

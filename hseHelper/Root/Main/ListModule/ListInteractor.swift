@@ -12,5 +12,8 @@ final class ListInteractor {
 }
 
 extension ListInteractor: ListInteractorInput {
-
+    func isAppAlreadyLaunchedOnce() {
+        let isAppAlreadyLaunchedOnce = UserSettings.isAppAlreadyLaunchedOnce()
+        output?.isAppAlreadyLaunchedOnceAnswer(with: isAppAlreadyLaunchedOnce)
+    }
 }

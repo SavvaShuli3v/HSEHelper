@@ -14,20 +14,21 @@ final class AppCoordinator {
     
     func startWithList() {
         let context = ListModuleContext(
-            presentAction: { [weak navigationController] in
-                print($0)
-                navigationController?.pushViewController($0, animated: true)
+            presentAction: { [weak self] in
+                self?.showThemesVC()
             },
             moduleOutput: nil
         )
         let container = ListContainer.assemble(with: context)
-        
+
         navigationController.viewControllers = [container.viewController]
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
     
-    func showNewVC(vc viewController: UIViewController) {
-        //let vc = viewController
+    func showThemesVC() {
+        let context = ThemesModuleContext(moduleOutput: nil)
+        let container = ThemesContainer.assembly(with: context)
+        navigationController.pushViewController(container.viewController, animated: true)
     }
 }

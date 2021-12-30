@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ThemesTableViewDelegate: AnyObject {
+    func showArticle()
     func tappedToCell(with indexPath: IndexPath)
 }
 
@@ -81,6 +82,7 @@ extension ThemesTableView: UITableViewDataSource {
             return cell
         case 2:
             let cell: StartArticleTableViewCell = dequeueReusableCell(for: indexPath)
+            cell.delegate = self
             return cell
         case 3:
             let cell: TableViewTextCell = dequeueReusableCell(for: indexPath)
@@ -102,7 +104,7 @@ extension ThemesTableView: UITableViewDelegate {
         case 0:
             return 180
         case 1:
-            return 120
+            return 130
         case 2:
             return 90
         case 3:
@@ -116,5 +118,11 @@ extension ThemesTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(indexPath)
+    }
+}
+
+extension ThemesTableView: StartArticleTableViewCellProtocol {
+    func showArtcile() {
+        answerDelegate?.showArticle()
     }
 }

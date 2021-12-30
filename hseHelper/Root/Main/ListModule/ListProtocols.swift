@@ -16,22 +16,25 @@ protocol ListModuleOutput: AnyObject {
 }
 
 protocol ListViewInput: AnyObject {
+    func openIntroOfApp()
     func setData(with data: ListModel)
 }
 
 protocol ListViewOutput: AnyObject {
     func viewDidLoad()
-    func showVC()
+    func showThemeVC()
+    func showProfileVC()
 }
 
 protocol ListInteractorInput: AnyObject {
-    
+    func isAppAlreadyLaunchedOnce()
 }
 
 protocol ListInteractorOutput: AnyObject {
-    
+    func isAppAlreadyLaunchedOnceAnswer(with answer: Bool)
 }
 
 protocol ListRouterInput: AnyObject {
     func showThemesVC()
+    func showProfileVC()
 }

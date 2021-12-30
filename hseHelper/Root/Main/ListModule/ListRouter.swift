@@ -9,17 +9,21 @@ import UIKit
 
 final class ListRouter {
     weak var viewController: UIViewController?
-    private let presentAction: (UIViewController) -> Void
+    private let presentAction: () -> Void
     
-    init(presentAction: @escaping (UIViewController) -> Void) {
+    init(presentAction: @escaping () -> Void) {
         self.presentAction = presentAction
     }
 }
 
 extension ListRouter: ListRouterInput {
+    func showProfileVC() {
+        viewController?.present(ProfileViewController(), animated: true, completion: nil)
+    }
+    
     func showThemesVC() {
-        //presentAction(ThemesViewController())
-        viewController?.navigationController?.pushViewController(ThemesViewController(), animated: true)
+        presentAction()
+        //viewController?.navigationController?.pushViewController(ThemesViewController(), animated: true)
         //viewController?.present(ThemesViewController(), animated: true, completion: nil)
     }
 }

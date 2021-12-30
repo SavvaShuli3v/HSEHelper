@@ -7,7 +7,12 @@
 
 import UIKit
 
+protocol StartArticleTableViewCellProtocol: AnyObject {
+    func showArtcile()
+}
+
 final class StartArticleTableViewCell: UITableViewCell {
+    weak var delegate: StartArticleTableViewCellProtocol?
     
     private lazy var mainButton = makeButton()
     
@@ -15,14 +20,18 @@ final class StartArticleTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         selectionStyle = .none
         backgroundColor = .clear
-        addSubview(mainButton)
+        contentView.addSubview(mainButton)
+        
+        mainButton.setAction { [weak self] in
+            self?.delegate?.showArtcile()
+        }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         mainButton.frame = CGRect(
             origin: CGPoint(x: 16, y: 16),
-            size: CGSize(width: bounds.width - 32, height: 46)
+            size: CGSize(width: bounds.width - 32, height: 52)
         )
     }
     
@@ -31,11 +40,11 @@ final class StartArticleTableViewCell: UITableViewCell {
     }
 }
 
-private func makeButton() -> UIButton {
-    let button = UIButton()
+private func makeButton() -> StartAnimatedButton {
+    let button = StartAnimatedButton()
     button.backgroundColor = AppColors.lightPurple
     button.setTitle("Читать статью", for: .normal)
     button.setTitleColor(AppColors.white, for: .normal)
-    button.layer.cornerRadius = 8
+    button.layer.cornerRadius = 10
     return button
 }

@@ -1,13 +1,13 @@
 //
-//  TableViewButton.swift
+//  IntroNextButton.swift
 //  hseHelper
 //
-//  Created by Савва Шулятьев on 20.12.2021.
+//  Created by Савва Шулятьев on 30.12.2021.
 //
 
 import UIKit
 
-class TableViewButton: UIButton {
+final class IntroNextButton: UIButton {
     private var action: Action?
     
     private var isPressed: Bool = false {
@@ -19,7 +19,7 @@ class TableViewButton: UIButton {
                 options: .allowUserInteraction,
                 animations: {
                     self.alpha *= self.isPressed ? 0.5 : 2
-                    self.backgroundColor = self.isPressed ? AppColors.black : .clear
+                    self.backgroundColor = self.isPressed ? AppColors.lightPurple : AppColors.lightPurple
                 }
             )
         }

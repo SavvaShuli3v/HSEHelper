@@ -10,8 +10,7 @@ import UIKit
 final class ListViewController: UIViewController {
     private let output: ListViewOutput
     
-    private lazy var profileView = UIImageView()
-    private lazy var profileButton = UIButton()
+    private lazy var profileView = ListProfileView(frame: .zero)
     private lazy var tableView = ListTableView()
 
     init(output: ListViewOutput) {
@@ -45,6 +44,7 @@ final class ListViewController: UIViewController {
         output.viewDidLoad()
         view.backgroundColor = AppColors.black
         tableView.answerDelegate = self
+        profileView.delegate = self
         setupNavBar()
     }
     
@@ -60,6 +60,13 @@ final class ListViewController: UIViewController {
 }
 
 extension ListViewController: ListViewInput {
+    func openIntroOfApp() {
+        let introContainer = IntroContainer()
+        let vc = introContainer.viewController
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: false, completion: nil)
+    }
+    
     func setData(with data: ListModel) {
         tableView.setData(with: data)
     }
@@ -67,7 +74,7 @@ extension ListViewController: ListViewInput {
 
 extension ListViewController: ListTableViewDelegate {
     func tappedToCell(with indexPath: IndexPath) {
-        output.showVC()
+        output.showThemeVC()
     }
     
     func scrollViewDidScroll() {
@@ -75,6 +82,15 @@ extension ListViewController: ListTableViewDelegate {
         moveAndResizeImage(for: height)
     }
 }
+
+extension ListViewController: ListProfileViewProtocol {
+    func tappedToProfileButton() {
+        output.showProfileVC()
+    }
+}
+
+
+// MARK: - private extension ListViewController -- Setup Navigation bar
 
 private extension ListViewController {
     func setupNavBar() {
@@ -84,19 +100,12 @@ private extension ListViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         setupNavBarUI()
     }
-}
-
-private extension ListViewController {
+    
     func setupNavBarUI() {
         // Initial setup for image for Large NavBar state since the the screen always has Large NavBar once it gets opened
         guard let navigationBar = self.navigationController?.navigationBar else { return }
         navigationBar.addSubview(profileView)
         
-        if #available(iOS 13.0, *) {
-            profileView.image = .init(systemName: "person.crop.circle")
-        } else {
-            profileView.image = UIImage.init(named: "person")
-        }
         profileView.layer.cornerRadius = Const.ImageSizeForLargeState / 2
         profileView.clipsToBounds = true
         profileView.translatesAutoresizingMaskIntoConstraints = false
