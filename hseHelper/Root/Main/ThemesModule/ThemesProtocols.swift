@@ -20,7 +20,7 @@ protocol ThemesViewInput: AnyObject {
 }
 
 protocol ThemesViewOutput: AnyObject {
-
+    func showArticle()
 }
 
 protocol ThemesInteractorInput: AnyObject {
@@ -32,5 +32,5 @@ protocol ThemesInteractorOutput: AnyObject {
 }
 
 protocol ThemesRouterInput: AnyObject {
-
+    func showArticle()
 }

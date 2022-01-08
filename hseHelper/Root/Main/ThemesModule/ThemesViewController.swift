@@ -23,7 +23,7 @@ final class ThemesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppColors.black
+        view.backgroundColor = UIColor.Pallete.white
         navigationItem.largeTitleDisplayMode = .never
         view.addSubview(tableView)
         tableView.answerDelegate = self
@@ -41,9 +41,7 @@ extension ThemesViewController: ThemesViewInput {
 
 extension ThemesViewController: ThemesTableViewDelegate {
     func showArticle() {
-        let backItem = UIBarButtonItem(title: "назад", style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = backItem
-        navigationController?.pushViewController(TestArticleViewController(), animated: true)
+        output.showArticle()
     }
     
     func tappedToCell(with indexPath: IndexPath) {

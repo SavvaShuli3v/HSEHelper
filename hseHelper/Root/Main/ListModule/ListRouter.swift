@@ -18,12 +18,10 @@ final class ListRouter {
 
 extension ListRouter: ListRouterInput {
     func showProfileVC() {
-        viewController?.present(ProfileViewController(), animated: true, completion: nil)
+        viewController?.navigationController?.pushViewController(ProfileViewController(), animated: true)
     }
     
     func showThemesVC() {
         presentAction()
-        //viewController?.navigationController?.pushViewController(ThemesViewController(), animated: true)
-        //viewController?.present(ThemesViewController(), animated: true, completion: nil)
     }
 }

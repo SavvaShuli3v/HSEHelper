@@ -22,7 +22,7 @@ final class IntroViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = AppColors.black
+        view.backgroundColor = UIColor.Pallete.white
         setupNavBar()
         view.addSubview(helloLabel)
         view.addSubview(appNameLabel)
@@ -85,14 +85,14 @@ private extension IntroViewController {
 private func makeBigLabel(with text: String) -> UILabel {
     let label = UILabel()
     label.text = text
-    label.textColor = AppColors.white
+    label.textColor = UIColor.Pallete.black
     label.font = .systemFont(ofSize: 28, weight: .bold)
     return label
 }
 
 private func makeLabel() -> UILabel {
     let label = UILabel()
-    label.textColor = AppColors.lightGray
+    label.textColor = UIColor.Pallete.lightGray
     label.font = .systemFont(ofSize: 18, weight: .light)
     return label
 }
@@ -100,8 +100,8 @@ private func makeLabel() -> UILabel {
 private func makeNextButton() -> IntroNextButton {
     let button = IntroNextButton()
     button.setTitle("Начать пользоваться", for: .normal)
-    button.setTitleColor(AppColors.white, for: .normal)
+    button.setTitleColor(UIColor.Pallete.black, for: .normal)
     button.layer.cornerRadius = 10
-    button.backgroundColor = AppColors.lightPurple
+    button.backgroundColor = UIColor.Pallete.lightPurple
     return button
 }

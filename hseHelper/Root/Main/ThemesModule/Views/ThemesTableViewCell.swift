@@ -71,14 +71,14 @@ private func makeMainLabel() -> UILabel {
     let label = UILabel()
     label.backgroundColor = .clear
     label.font = UIFont.systemFont(ofSize: 18, weight: .light)
-    label.textColor = AppColors.white
+    label.textColor = UIColor.Pallete.black
     label.text = "Some text"
     return label
 }
 
 private func makeLine() -> UIView {
     let view = UIView()
-    view.backgroundColor = AppColors.lightGray
+    view.backgroundColor = UIColor.Pallete.lightGray
     view.layer.cornerRadius = 0.2
     return view
 }
@@ -87,7 +87,7 @@ private func makeNumber() -> UILabel {
     let label = UILabel()
     label.backgroundColor = .clear
     label.font = UIFont.systemFont(ofSize: 18, weight: .light)
-    label.textColor = AppColors.white
+    label.textColor = UIColor.Pallete.black
     label.text = "1."
     return label
 }

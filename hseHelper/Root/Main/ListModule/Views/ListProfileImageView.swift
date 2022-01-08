@@ -29,7 +29,7 @@ final class ListProfileView: UIView {
             imageView.image = .init(systemName: "person.crop.circle")
         } else {
             imageView.image = UIImage.init(named: "person")
-            imageView.backgroundColor = .blue
+            imageView.backgroundColor = .clear
         }
     }
     

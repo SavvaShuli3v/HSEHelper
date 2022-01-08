@@ -30,7 +30,7 @@ final class TableViewTextCell: UITableViewCell {
         addSubview(mainLabel)
         mainLabel.text = "Самое важное"
         mainLabel.font = UIFont.systemFont(ofSize: 22, weight: .bold)
-        mainLabel.textColor = AppColors.white
+        mainLabel.textColor = UIColor.Pallete.black
     }
     
     override func layoutSubviews() {

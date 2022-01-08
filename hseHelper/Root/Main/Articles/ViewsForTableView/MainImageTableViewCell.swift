@@ -1,20 +1,18 @@
 //
-//  ThemeImageTableViewCell.swift
+//  MainImageTableViewCell.swift
 //  hseHelper
 //
-//  Created by Савва Шулятьев on 23.12.2021.
+//  Created by Савва Шулятьев on 01.01.2022.
 //
 
 import UIKit
 
-final class ThemeImageTableViewCell: UITableViewCell {
-    
+final class MainImageTableViewCell: UITableViewCell {
     private lazy var mainImageView = makeImageView()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = .clear
-        selectionStyle = .none
         addSubview(mainImageView)
     }
     
@@ -24,14 +22,12 @@ final class ThemeImageTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        mainImageView.frame = CGRect(
-            origin: CGPoint(x: 0, y: bounds.height - bounds.width / 3),
-            size: CGSize(width: bounds.width, height: bounds.width / 3))
+        mainImageView.frame = bounds
     }
 }
 
 private func makeImageView() -> UIImageView {
     let imageView = UIImageView()
-    imageView.backgroundColor = UIColor.Pallete.lightGray
+    imageView.backgroundColor = .clear
     return imageView
 }

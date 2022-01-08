@@ -42,7 +42,7 @@ final class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output.viewDidLoad()
-        view.backgroundColor = AppColors.black
+        view.backgroundColor = UIColor.Pallete.white
         tableView.answerDelegate = self
         profileView.delegate = self
         setupNavBar()
@@ -94,10 +94,10 @@ extension ListViewController: ListProfileViewProtocol {
 
 private extension ListViewController {
     func setupNavBar() {
-        navigationController?.navigationBar.barStyle = .black
+        navigationController?.navigationBar.barStyle = .default
         navigationItem.title = "HSE помошник"
         navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.Pallete.black]
         setupNavBarUI()
     }
     

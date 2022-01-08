@@ -129,7 +129,7 @@ private extension ListTableViewCell {
 private func makeTopicLabel() -> UILabel {
     let label = UILabel()
     label.backgroundColor = .clear
-    label.textColor = AppColors.white
+    label.textColor = UIColor.Pallete.black
     label.font = .systemFont(ofSize: 18, weight: .light)
     label.numberOfLines = 2
     return label
@@ -138,14 +138,14 @@ private func makeTopicLabel() -> UILabel {
 private func makeAboutLabel() -> UILabel {
     let label = UILabel()
     label.backgroundColor = .clear
-    label.textColor = AppColors.lightGray
+    label.textColor = UIColor.Pallete.lightGray
     label.font = .systemFont(ofSize: 18, weight: .light)
     return label
 }
 
 private func makeTopicImageView() -> UIImageView {
     let imageView = UIImageView()
-    imageView.backgroundColor = AppColors.lightGray
+    imageView.backgroundColor = UIColor.Pallete.lightGray
     imageView.layer.cornerRadius = 10
     imageView.clipsToBounds = true
     imageView.contentMode = .scaleAspectFit

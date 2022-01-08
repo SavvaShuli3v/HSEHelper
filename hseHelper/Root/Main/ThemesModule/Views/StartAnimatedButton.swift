@@ -19,7 +19,7 @@ final class StartAnimatedButton: UIButton {
                 options: .allowUserInteraction,
                 animations: {
                     self.alpha *= self.isPressed ? 0.5 : 2
-                    self.backgroundColor = self.isPressed ? AppColors.lightPurple : AppColors.lightPurple
+                    self.backgroundColor = self.isPressed ? UIColor.Pallete.lightPurple : UIColor.Pallete.lightPurple
                 }
             )
         }

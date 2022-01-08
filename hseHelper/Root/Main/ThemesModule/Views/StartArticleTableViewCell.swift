@@ -42,9 +42,9 @@ final class StartArticleTableViewCell: UITableViewCell {
 
 private func makeButton() -> StartAnimatedButton {
     let button = StartAnimatedButton()
-    button.backgroundColor = AppColors.lightPurple
+    button.backgroundColor = UIColor.Pallete.lightPurple
     button.setTitle("Читать статью", for: .normal)
-    button.setTitleColor(AppColors.white, for: .normal)
+    button.setTitleColor(UIColor.Pallete.black, for: .normal)
     button.layer.cornerRadius = 10
     return button
 }

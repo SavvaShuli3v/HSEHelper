@@ -21,7 +21,9 @@ final class ThemesPresenter {
 }
 
 extension ThemesPresenter: ThemesViewOutput {
-    
+    func showArticle() {
+        router.showArticle()
+    }
 }
 
 extension ThemesPresenter: ThemesInteractorOutput {

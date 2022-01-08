@@ -22,7 +22,7 @@ final class ListCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = AppColors.black
+        backgroundColor = .clear
         addSubview(mainImageView)
         mainImageView.layer.cornerRadius = 5
         addSubview(mainButton)
@@ -70,7 +70,7 @@ final class ListCollectionViewCell: UICollectionViewCell {
 
 private func makeImageView() -> UIImageView {
     let imageView = UIImageView()
-    imageView.backgroundColor = AppColors.lightGray
+    imageView.backgroundColor = UIColor.Pallete.lightGray
     return imageView
 }
 
@@ -79,17 +79,17 @@ private func makeMainLabel() -> UILabel {
     label.backgroundColor = .clear
     label.font = UIFont.systemFont(ofSize: 18, weight: .light)
     label.text = "Как сдать БЖД на 10! Новая статья для студентов"
-    label.textColor = AppColors.white
+    label.textColor = UIColor.Pallete.black
     return label
 }
 
 private func makeMainButton() -> TableViewButton {
     let button = TableViewButton()
     button.setTitle("Читать", for: .normal)
-    button.setTitleColor(AppColors.lightGray, for: .normal)
+    button.setTitleColor(UIColor.Pallete.lightGray, for: .normal)
     button.layer.cornerRadius = 15
     button.layer.borderWidth = 0.5
-    button.layer.borderColor = AppColors.lightGray.cgColor
+    button.layer.borderColor = UIColor.Pallete.lightGray.cgColor
     return button
 }
 

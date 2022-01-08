@@ -10,9 +10,10 @@ import UIKit
 final class AppCoordinator {
     
     private let window = UIWindow(frame: UIScreen.main.bounds)
-    private let navigationController = UINavigationController()
+    private let navigationController = MainNavigationController()
     
     func startWithList() {
+        window.initTheme()
         let context = ListModuleContext(
             presentAction: { [weak self] in
                 self?.showThemesVC()

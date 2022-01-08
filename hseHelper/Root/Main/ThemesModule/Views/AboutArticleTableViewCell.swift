@@ -43,7 +43,7 @@ private func makeMainLabel() -> UILabel {
     let label = UILabel()
     label.text = "Как жить в России"
     label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
-    label.textColor = AppColors.white
+    label.textColor = UIColor.Pallete.black
     return label
 }
 
@@ -52,7 +52,7 @@ private func makeTaskLabel() -> UILabel {
     label.text = "тратратратраттратраттратраттратратратртатратратртартатрататратттратратртатртартатратратратраттратратратраттратраттратраттратратратртатратратртартатрататратттратратртатртартатратратратрат"
     label.font = UIFont.systemFont(ofSize: 18, weight: .light)
     label.numberOfLines = 0
-    label.textColor = AppColors.lightGray
+    label.textColor = UIColor.Pallete.lightGray
     
     return label
 }
