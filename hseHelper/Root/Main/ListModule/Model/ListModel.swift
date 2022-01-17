@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 struct ListModel {
-    var lastTheme: String
     var themes: [ThemeModel]
+    var futureThemes: [ThemeModel]
 }
 
 struct ThemeModel {

@@ -18,7 +18,10 @@ final class ListRouter {
 
 extension ListRouter: ListRouterInput {
     func showProfileVC() {
-        viewController?.navigationController?.pushViewController(ProfileViewController(), animated: true)
+        let vc = ProfileViewController()
+        let navController = MainNavigationController(rootViewController: vc)
+        navController.modalPresentationStyle = .fullScreen
+        viewController?.present(navController, animated: true, completion: nil)
     }
     
     func showThemesVC() {

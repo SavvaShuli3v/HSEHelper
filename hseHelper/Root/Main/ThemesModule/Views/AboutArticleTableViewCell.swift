@@ -18,7 +18,6 @@ final class AboutArticleTableViewCell: UITableViewCell {
         backgroundColor = .clear
         addSubview(mainLabel)
         addSubview(taskLabel)
-        
     }
     
     required init?(coder: NSCoder) {
@@ -37,11 +36,18 @@ final class AboutArticleTableViewCell: UITableViewCell {
             size: CGSize(width: bounds.width - 32, height: 80)
         )
     }
+    
+    func setMainText(_ text: String) {
+        mainLabel.text = text
+    }
+    
+    func settaskText(_ text: String) {
+        taskLabel.text = text
+    }
 }
 
 private func makeMainLabel() -> UILabel {
     let label = UILabel()
-    label.text = "Как жить в России"
     label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
     label.textColor = UIColor.Pallete.black
     return label
@@ -49,7 +55,6 @@ private func makeMainLabel() -> UILabel {
 
 private func makeTaskLabel() -> UILabel {
     let label = UILabel()
-    label.text = "тратратратраттратраттратраттратратратртатратратртартатрататратттратратртатртартатратратратраттратратратраттратраттратраттратратратртатратратртартатрататратттратратртатртартатратратратрат"
     label.font = UIFont.systemFont(ofSize: 18, weight: .light)
     label.numberOfLines = 0
     label.textColor = UIColor.Pallete.lightGray

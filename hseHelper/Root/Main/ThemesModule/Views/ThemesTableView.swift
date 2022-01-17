@@ -79,6 +79,8 @@ extension ThemesTableView: UITableViewDataSource {
             return cell
         case 1:
             let cell: AboutArticleTableViewCell = dequeueReusableCell(for: indexPath)
+            cell.setMainText("Как жить в России")
+            cell.settaskText("")
             return cell
         case 2:
             let cell: StartArticleTableViewCell = dequeueReusableCell(for: indexPath)
@@ -90,7 +92,7 @@ extension ThemesTableView: UITableViewDataSource {
             return cell
         case 4:
             let cell: ThemesTableViewCell = dequeueReusableCell(for: indexPath)
-            cell.setData(with: ArticleModel(name: "Article name"), indexPath: indexPath)
+            cell.setData(with: "Article name", indexPath: indexPath)
             return cell
         default:
             preconditionFailure()
@@ -104,6 +106,16 @@ extension ThemesTableView: UITableViewDelegate {
         case 0:
             return 180
         case 1:
+            let text = "hfhfhfhfn"
+            let heightOfText = text.height(
+                constraintedWidth: bounds.width - 204,
+                font: UIFont.systemFont(
+                    ofSize: 13,
+                    weight: .regular
+                )
+            )
+        
+            //return heightOfCell
             return 130
         case 2:
             return 90

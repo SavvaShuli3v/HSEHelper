@@ -68,7 +68,7 @@ extension ListViewController: ListViewInput {
     }
     
     func setData(with data: ListModel) {
-        tableView.setData(with: data)
+        tableView.setThemes(with: data)
     }
 }
 

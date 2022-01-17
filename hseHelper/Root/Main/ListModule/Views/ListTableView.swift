@@ -16,6 +16,7 @@ final class ListTableView: UITableView {
     weak var answerDelegate: ListTableViewDelegate?
     
     private var themes = [ThemeModel]()
+    private var futureThemes = [ThemeModel]()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -34,8 +35,9 @@ final class ListTableView: UITableView {
         answerDelegate?.scrollViewDidScroll()
     }
     
-    func setData(with data: ListModel) {
+    func setThemes(with data: ListModel) {
         themes = data.themes
+        futureThemes = data.futureThemes
     }
     
     private func setupTableView() {
@@ -69,7 +71,7 @@ extension ListTableView: UITableViewDataSource {
         case 3:
             return themes.count
         case 4:
-            return themes.count
+            return futureThemes.count
         default:
             preconditionFailure()
         }
@@ -96,7 +98,7 @@ extension ListTableView: UITableViewDataSource {
             return cell
         case 4:
             let cell: FutureTableViewCell = dequeueReusableCell(for: indexPath)
-            cell.setData(with: themes[indexPath.row])
+            cell.setData(with: futureThemes[indexPath.row])
             return cell
         default:
             preconditionFailure()

@@ -38,8 +38,8 @@ final class ThemesTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setData(with model: ArticleModel, indexPath: IndexPath) {
-        themeLabel.text = model.name
+    func setData(with str: String, indexPath: IndexPath) {
+        themeLabel.text = str
         numberLabel.text = String(indexPath.row + 1) + "."
     }
     

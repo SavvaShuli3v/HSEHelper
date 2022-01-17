@@ -8,7 +8,8 @@
 import Foundation
 
 protocol ThemesModuleInput {
-    
+    func setKey(with id: String)
+    var array: [Int] { get set }
 }
 
 protocol ThemesModuleOutput: AnyObject {

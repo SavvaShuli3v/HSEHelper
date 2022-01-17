@@ -9,36 +9,43 @@ import UIKit
 
 final class ProfileViewController: UIViewController {
     
-    private lazy var closeButton = makeCloseButton()
+    private lazy var tabelView = ProfileTableView()
      
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(closeButton)
+        setupNavigationBar()
         view.backgroundColor = UIColor.Pallete.white
+        view.addSubview(tabelView)
+        tabelView.answerDelegate = self
     }
-    
+
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        closeButton.frame = CGRect(
-            origin: CGPoint(x: 100, y: 100),
-            size: CGSize(width: 160, height: 60)
-        )
+        tabelView.frame = view.bounds
     }
     
-    @objc private func closeButton(_: Any) {
+    @objc private func closeVCAction(_: Any) {
         dismiss(animated: true, completion: nil)
     }
 }
 
-private func makeCloseButton() -> TableViewButton {
-    let button = TableViewButton()
-    button.layer.cornerRadius = 25
-    button.backgroundColor = UIColor.Pallete.gray
-    return button
-}
-
 private extension ProfileViewController {
     func setupNavigationBar() {
-        //let button = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeButton))
+        let button = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVCAction))
+        navigationItem.rightBarButtonItem = button
+    }
+}
+
+extension ProfileViewController: ProfileTableViewDelegate {
+    func textUs() {
+        
+    }
+    
+    func aboutApp() {
+        
+    }
+    
+    func changeTheme() {
+        present(ThemePanelVC(), animated: true, completion: nil)
     }
 }

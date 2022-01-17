@@ -14,6 +14,8 @@ final class ThemesPresenter {
     private let router: ThemesRouterInput
     private let interactor: ThemesInteractorInput
     
+    private var key: String?
+    
     init(router: ThemesRouterInput, interactor: ThemesInteractorInput) {
         self.router = router
         self.interactor = interactor
@@ -31,5 +33,17 @@ extension ThemesPresenter: ThemesInteractorOutput {
 }
 
 extension ThemesPresenter: ThemesModuleInput {
+    var array: [Int] {
+        get {
+            print("get")
+            return []
+        }
+        set {
+            
+        }
+    }
     
+    func setKey(with id: String) {
+        key = id
+    }
 }

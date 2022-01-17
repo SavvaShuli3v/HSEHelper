@@ -29,10 +29,15 @@
 		4D6003552779C4540048F566 /* ThemesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6003542779C4540048F566 /* ThemesModel.swift */; };
 		4D6003572779D2020048F566 /* StartArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6003562779D2020048F566 /* StartArticleTableViewCell.swift */; };
 		4D6003592779E5BD0048F566 /* AboutArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6003582779E5BD0048F566 /* AboutArticleTableViewCell.swift */; };
+		4D612DCD27905760000F2F65 /* SimpleTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D612DCC27905760000F2F65 /* SimpleTextView.swift */; };
+		4D612DD1279058B8000F2F65 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D612DD0279058B8000F2F65 /* MainView.swift */; };
+		4D612DD327905917000F2F65 /* ListTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D612DD227905917000F2F65 /* ListTextView.swift */; };
 		4D6B18002768BD6C00A2E6ED /* ListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B17FF2768BD6C00A2E6ED /* ListTableViewCell.swift */; };
 		4D6B18032768D1F400A2E6ED /* ThemesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B18022768D1F400A2E6ED /* ThemesViewController.swift */; };
 		4D6B18052768F19300A2E6ED /* LastNewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B18042768F19300A2E6ED /* LastNewsTableViewCell.swift */; };
 		4D6B18082768F42A00A2E6ED /* ListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6B18072768F42A00A2E6ED /* ListModel.swift */; };
+		4D73170C2789E26D00D90F05 /* ProfileTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73170B2789E26D00D90F05 /* ProfileTableView.swift */; };
+		4D73170E278A175A00D90F05 /* SimpleProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D73170D278A175A00D90F05 /* SimpleProfileCell.swift */; };
 		4D7AE8D9277B973B00358A82 /* ListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D7AE8D8277B973B00358A82 /* ListCollectionViewCell.swift */; };
 		4D843969277C9FCB0032D39E /* ThemesContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D843968277C9FCB0032D39E /* ThemesContainer.swift */; };
 		4D84396B277C9FDB0032D39E /* ThemesProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84396A277C9FDB0032D39E /* ThemesProtocols.swift */; };
@@ -51,7 +56,6 @@
 		4D84A8F12789C336000EDCFB /* LargeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84A8F02789C336000EDCFB /* LargeTextView.swift */; };
 		4D84A8F32789C595000EDCFB /* SimpleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84A8F22789C595000EDCFB /* SimpleImageView.swift */; };
 		4D84A8F52789C65E000EDCFB /* HeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84A8F42789C65E000EDCFB /* HeadingView.swift */; };
-		4D84A8F72789C6BF000EDCFB /* LocalImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84A8F62789C6BF000EDCFB /* LocalImageView.swift */; };
 		4D84A8F92789C9C0000EDCFB /* CoordinatorService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D84A8F82789C9C0000EDCFB /* CoordinatorService.swift */; };
 		4D8F38CC2772184200B2A185 /* TableViewTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8F38CB2772184200B2A185 /* TableViewTextCell.swift */; };
 		4D9A4CDE2780D8E900B301DE /* MosCardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9A4CDD2780D8E900B301DE /* MosCardTableView.swift */; };
@@ -62,7 +66,6 @@
 		4DA26E482788E8C5005C4B8F /* ThemePanelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA26E472788E8C5005C4B8F /* ThemePanelVC.swift */; };
 		4DA26E4C2788FCD1005C4B8F /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA26E4B2788FCD1005C4B8F /* MainNavigationController.swift */; };
 		4DD4E7BE276CEA0400453C4C /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4E7BD276CEA0400453C4C /* ProfileViewController.swift */; };
-		4DD4E7C3276CF9F000453C4C /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD4E7C2276CF9F000453C4C /* Localization.swift */; };
 		4DD8D8902774B26C00CAE79D /* ThemesTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8D88F2774B26C00CAE79D /* ThemesTableView.swift */; };
 		4DD8D8932774BDB700CAE79D /* ThemeImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8D8922774BDB700CAE79D /* ThemeImageTableViewCell.swift */; };
 		4DD8D8952774C03600CAE79D /* ThemesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DD8D8942774C03600CAE79D /* ThemesTableViewCell.swift */; };
@@ -96,10 +99,15 @@
 		4D6003542779C4540048F566 /* ThemesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesModel.swift; sourceTree = "<group>"; };
 		4D6003562779D2020048F566 /* StartArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartArticleTableViewCell.swift; sourceTree = "<group>"; };
 		4D6003582779E5BD0048F566 /* AboutArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutArticleTableViewCell.swift; sourceTree = "<group>"; };
+		4D612DCC27905760000F2F65 /* SimpleTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleTextView.swift; sourceTree = "<group>"; };
+		4D612DD0279058B8000F2F65 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		4D612DD227905917000F2F65 /* ListTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTextView.swift; sourceTree = "<group>"; };
 		4D6B17FF2768BD6C00A2E6ED /* ListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableViewCell.swift; sourceTree = "<group>"; };
 		4D6B18022768D1F400A2E6ED /* ThemesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesViewController.swift; sourceTree = "<group>"; };
 		4D6B18042768F19300A2E6ED /* LastNewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastNewsTableViewCell.swift; sourceTree = "<group>"; };
 		4D6B18072768F42A00A2E6ED /* ListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListModel.swift; sourceTree = "<group>"; };
+		4D73170B2789E26D00D90F05 /* ProfileTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableView.swift; sourceTree = "<group>"; };
+		4D73170D278A175A00D90F05 /* SimpleProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleProfileCell.swift; sourceTree = "<group>"; };
 		4D7AE8D8277B973B00358A82 /* ListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCollectionViewCell.swift; sourceTree = "<group>"; };
 		4D843968277C9FCB0032D39E /* ThemesContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesContainer.swift; sourceTree = "<group>"; };
 		4D84396A277C9FDB0032D39E /* ThemesProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesProtocols.swift; sourceTree = "<group>"; };
@@ -118,7 +126,6 @@
 		4D84A8F02789C336000EDCFB /* LargeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTextView.swift; sourceTree = "<group>"; };
 		4D84A8F22789C595000EDCFB /* SimpleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleImageView.swift; sourceTree = "<group>"; };
 		4D84A8F42789C65E000EDCFB /* HeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingView.swift; sourceTree = "<group>"; };
-		4D84A8F62789C6BF000EDCFB /* LocalImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalImageView.swift; sourceTree = "<group>"; };
 		4D84A8F82789C9C0000EDCFB /* CoordinatorService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorService.swift; sourceTree = "<group>"; };
 		4D8F38CB2772184200B2A185 /* TableViewTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewTextCell.swift; sourceTree = "<group>"; };
 		4D9A4CDD2780D8E900B301DE /* MosCardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MosCardTableView.swift; sourceTree = "<group>"; };
@@ -129,7 +136,6 @@
 		4DA26E472788E8C5005C4B8F /* ThemePanelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePanelVC.swift; sourceTree = "<group>"; };
 		4DA26E4B2788FCD1005C4B8F /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		4DD4E7BD276CEA0400453C4C /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		4DD4E7C2276CF9F000453C4C /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		4DD8D88F2774B26C00CAE79D /* ThemesTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesTableView.swift; sourceTree = "<group>"; };
 		4DD8D8922774BDB700CAE79D /* ThemeImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeImageTableViewCell.swift; sourceTree = "<group>"; };
 		4DD8D8942774C03600CAE79D /* ThemesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemesTableViewCell.swift; sourceTree = "<group>"; };
@@ -331,6 +337,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		4D73170F278B4D6100D90F05 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4D73170B2789E26D00D90F05 /* ProfileTableView.swift */,
+				4D73170D278A175A00D90F05 /* SimpleProfileCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		4D843975277D02B60032D39E /* IntroModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,10 +360,12 @@
 			isa = PBXGroup;
 			children = (
 				4DA26E4B2788FCD1005C4B8F /* MainNavigationController.swift */,
+				4D612DD0279058B8000F2F65 /* MainView.swift */,
 				4D84A8F22789C595000EDCFB /* SimpleImageView.swift */,
-				4D84A8F62789C6BF000EDCFB /* LocalImageView.swift */,
 				4D84A8F02789C336000EDCFB /* LargeTextView.swift */,
 				4D84A8F42789C65E000EDCFB /* HeadingView.swift */,
+				4D612DCC27905760000F2F65 /* SimpleTextView.swift */,
+				4D612DD227905917000F2F65 /* ListTextView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -357,6 +374,7 @@
 			isa = PBXGroup;
 			children = (
 				4DD4E7BD276CEA0400453C4C /* ProfileViewController.swift */,
+				4D73170F278B4D6100D90F05 /* Views */,
 			);
 			path = ProfileModule;
 			sourceTree = "<group>";
@@ -366,7 +384,6 @@
 			children = (
 				4D35BCD827888F54005EFDFC /* Theme */,
 				4DA26E412788E719005C4B8F /* Palete.swift */,
-				4DD4E7C2276CF9F000453C4C /* Localization.swift */,
 				4DF2F2992770D36200152846 /* Other.swift */,
 				4D843972277CF8780032D39E /* UserSettings.swift */,
 			);
@@ -458,13 +475,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D6B18002768BD6C00A2E6ED /* ListTableViewCell.swift in Sources */,
+				4D612DD1279058B8000F2F65 /* MainView.swift in Sources */,
 				4D84A8F12789C336000EDCFB /* LargeTextView.swift in Sources */,
 				4D9A4CDE2780D8E900B301DE /* MosCardTableView.swift in Sources */,
 				4D35BCE027889065005EFDFC /* Persists.swift in Sources */,
 				4DD8D8902774B26C00CAE79D /* ThemesTableView.swift in Sources */,
 				4D843969277C9FCB0032D39E /* ThemesContainer.swift in Sources */,
 				4DA26E4C2788FCD1005C4B8F /* MainNavigationController.swift in Sources */,
-				4DD4E7C3276CF9F000453C4C /* Localization.swift in Sources */,
+				4D612DD327905917000F2F65 /* ListTextView.swift in Sources */,
 				4D84A8EC2789BD0A000EDCFB /* String + Extension.swift in Sources */,
 				4D7AE8D9277B973B00358A82 /* ListCollectionViewCell.swift in Sources */,
 				4D8F38CC2772184200B2A185 /* TableViewTextCell.swift in Sources */,
@@ -474,6 +492,7 @@
 				4DD8D8932774BDB700CAE79D /* ThemeImageTableViewCell.swift in Sources */,
 				4DD8D8952774C03600CAE79D /* ThemesTableViewCell.swift in Sources */,
 				4D84A8F92789C9C0000EDCFB /* CoordinatorService.swift in Sources */,
+				4D612DCD27905760000F2F65 /* SimpleTextView.swift in Sources */,
 				4D35BCDC27888F8D005EFDFC /* Theme + app.swift in Sources */,
 				4DF2F2982770D32E00152846 /* TableViewButton.swift in Sources */,
 				4D84396F277C9FF30032D39E /* ThemesRouter.swift in Sources */,
@@ -502,12 +521,13 @@
 				4D13398C27677CFE00B82F9D /* ListProtocols.swift in Sources */,
 				4DF2F29A2770D36200152846 /* Other.swift in Sources */,
 				4D025709277B8CBA008E349C /* ListCollectionView.swift in Sources */,
+				4D73170E278A175A00D90F05 /* SimpleProfileCell.swift in Sources */,
 				4D35BCDE27888FBD005EFDFC /* UIWindow + theme.swift in Sources */,
 				4D221B54277BC1900071098C /* ListProfileImageView.swift in Sources */,
 				4D6B18082768F42A00A2E6ED /* ListModel.swift in Sources */,
 				4D84396B277C9FDB0032D39E /* ThemesProtocols.swift in Sources */,
-				4D84A8F72789C6BF000EDCFB /* LocalImageView.swift in Sources */,
 				4DD4E7BE276CEA0400453C4C /* ProfileViewController.swift in Sources */,
+				4D73170C2789E26D00D90F05 /* ProfileTableView.swift in Sources */,
 				4D6B18032768D1F400A2E6ED /* ThemesViewController.swift in Sources */,
 				4DD8D8972774C93900CAE79D /* ThemeNameTableViewCell.swift in Sources */,
 				4D843981277D1E1E0032D39E /* FutureTableViewCell.swift in Sources */,
@@ -665,7 +685,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -694,7 +714,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

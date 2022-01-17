@@ -10,9 +10,7 @@ import UIKit
 struct ThemesModel {
     var mainImage: UIImage?
     var mainInfo: String
-    var article: ArticleModel
+    var aboutInfo: String
+    var article: [String]
 }
 
-struct ArticleModel {
-    var name: String
-}

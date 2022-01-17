@@ -1,14 +1,14 @@
 //
-//  HeadingView.swift
+//  SimpleTextView.swift
 //  hseHelper
 //
-//  Created by Савва Шулятьев on 08.01.2022.
+//  Created by Савва Шулятьев on 13.01.2022.
 //
 
 import UIKit
 
-final class HeadingView: UIView {
-    private lazy var largeText = makeLargeLabel()
+final class SimpleTextView: UIView {
+    private lazy var textLabel = makeLargeLabel()
     
     private var text: String
     private var top: CGFloat
@@ -24,14 +24,14 @@ final class HeadingView: UIView {
         self.text = text
         super.init(frame: .zero)
         backgroundColor = .clear
-        addSubview(largeText)
-        largeText.text = text
+        addSubview(textLabel)
+        textLabel.text = text
         
-        largeText.translatesAutoresizingMaskIntoConstraints = false
-        largeText.leading(leading)
-        largeText.trailing(trailing)
-        largeText.top(top)
-        largeText.bottom(bottom)
+        textLabel.translatesAutoresizingMaskIntoConstraints = false
+        textLabel.leading(leading)
+        textLabel.trailing(trailing)
+        textLabel.top(top)
+        textLabel.bottom(bottom)
     }
     
     required init?(coder: NSCoder) {
@@ -40,7 +40,7 @@ final class HeadingView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        largeText.frame = CGRect(
+        textLabel.frame = CGRect(
             origin: CGPoint(x: 16, y: 16),
             size: CGSize(width: bounds.width - 32, height: bounds.height - 32))
     }
@@ -49,8 +49,9 @@ final class HeadingView: UIView {
 private func makeLargeLabel() -> UILabel {
     let label = UILabel()
     label.textColor = UIColor.Pallete.black
-    label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+    label.font = UIFont.systemFont(ofSize: 18, weight: .light)
     label.numberOfLines = 0
     return label
 }
+
 

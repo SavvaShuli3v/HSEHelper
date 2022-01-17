@@ -28,7 +28,7 @@ final class AppCoordinator {
     }
     
     func showThemesVC() {
-        let context = ThemesModuleContext(moduleOutput: nil)
+        let context = ThemesModuleContext(moduleOutput: nil, id: "1")
         let container = ThemesContainer.assembly(with: context)
         navigationController.pushViewController(container.viewController, animated: true)
     }
