@@ -24,9 +24,11 @@ final class ThemeImageTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        mainImageView.frame = CGRect(
-            origin: CGPoint(x: 0, y: bounds.height - bounds.width / 3),
-            size: CGSize(width: bounds.width, height: bounds.width / 3))
+        mainImageView.frame = bounds
+    }
+    
+    func setImage(image: UIImage?) {
+        mainImageView.image = image
     }
 }
 

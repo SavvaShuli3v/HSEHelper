@@ -16,6 +16,6 @@ extension ThemesRouter: ThemesRouterInput {
     func showArticle() {
         //let backItem = UIBarButtonItem(title: "назад", style: .plain, target: nil, action: nil)
         //viewController?.navigationItem.backBarButtonItem = backItem
-        //viewController?.navigationController?.pushViewController(TestArticleViewController(), animated: true)
+        viewController?.navigationController?.pushViewController(MosCardViewController(), animated: true)
     }
 }

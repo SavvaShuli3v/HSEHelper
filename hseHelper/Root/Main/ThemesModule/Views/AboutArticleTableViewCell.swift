@@ -31,6 +31,7 @@ final class AboutArticleTableViewCell: UITableViewCell {
     
     func settaskText(_ text: String) {
         taskLabel.text = text
+        taskLabel.setLineSpacing(lineSpacing: 5)
     }
     
     private func setConstraints() {
@@ -42,7 +43,7 @@ final class AboutArticleTableViewCell: UITableViewCell {
         taskLabel.translatesAutoresizingMaskIntoConstraints = false
         taskLabel.leading(16)
         taskLabel.trailing(-16)
-        taskLabel.top(14, to: mainLabel.bottomAnchor)
+        taskLabel.top(10, to: mainLabel.bottomAnchor)
     }
 }
 

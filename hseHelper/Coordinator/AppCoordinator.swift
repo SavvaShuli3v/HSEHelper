@@ -13,6 +13,7 @@ final class AppCoordinator {
     private let tabBarController = UITabBarController()
     private let mainNavigationController = MainNavigationController()
     private let linksNavigationController = MainNavigationController()
+    private let userNavigationController = MainNavigationController()
     
     func startWithList() {
         window.initTheme()
@@ -29,6 +30,10 @@ final class AppCoordinator {
         let linksContainer = ListOfLinksContainer()
         linksNavigationController.viewControllers = [linksContainer.vc]
         
+        let userContainer = UserContainer()
+        userNavigationController.viewControllers = [userContainer.vc]
+        
+        
         window.rootViewController = tabBarController
         tabBarController.setViewControllers(
             [installationVC(
@@ -39,8 +44,12 @@ final class AppCoordinator {
              installationVC(
                 rootViewController: linksNavigationController,
                 title: "Ссылки",
-                image: UIImage.init(systemName: "eye.circle") ?? UIImage()
-             )
+                image: UIImage.init(systemName: "globe") ?? UIImage()
+             ),
+             installationVC(
+                rootViewController: userNavigationController,
+                title: "Профиль",
+                image: UIImage.init(systemName: "person") ?? UIImage())
             ]
         , animated: true)
         window.makeKeyAndVisible()

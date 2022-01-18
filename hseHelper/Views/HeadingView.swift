@@ -10,46 +10,30 @@ import UIKit
 final class HeadingView: UIView {
     private lazy var largeText = makeLargeLabel()
     
-    private var text: String
-    private var top: CGFloat
-    private var bottom: CGFloat
-    private var leading: CGFloat
-    private var trailing: CGFloat
-    
-    init(text: String, top: CGFloat = 0, bottom: CGFloat = 0, leading: CGFloat = 0, trailing: CGFloat = 0) {
-        self.top = top
-        self.bottom = bottom
-        self.leading = leading
-        self.trailing = trailing
-        self.text = text
+    init() {
         super.init(frame: .zero)
         backgroundColor = .clear
         addSubview(largeText)
-        largeText.text = text
-        
         largeText.translatesAutoresizingMaskIntoConstraints = false
-        largeText.leading(leading)
-        largeText.trailing(trailing)
-        largeText.top(top)
-        largeText.bottom(bottom)
+        largeText.leading(16)
+        largeText.trailing(-16)
+        largeText.top()
+        largeText.bottom()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        largeText.frame = CGRect(
-            origin: CGPoint(x: 16, y: 16),
-            size: CGSize(width: bounds.width - 32, height: bounds.height - 32))
+    func setText(text: String) {
+        largeText.text = text
     }
 }
 
 private func makeLargeLabel() -> UILabel {
     let label = UILabel()
     label.textColor = UIColor.Pallete.black
-    label.font = UIFont.systemFont(ofSize: 28, weight: .bold)
+    label.font = UIFont.systemFont(ofSize: 22, weight: .bold)
     label.numberOfLines = 0
     return label
 }

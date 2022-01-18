@@ -26,9 +26,9 @@ private let ArticleMOSCard = Article(
     themeModel: ThemeModel(
         themeName: "Карта Москвича",
      additionalInf: "Как можно скорее",
-     image: nil),
+     image: UIImage.init(named: "moskartamini")),
     themesModel: ThemesModel(
-        mainImage: nil,
+        mainImage: UIImage.init(named: "moskartamini"),
         mainInfo: "Карта Москвича - социальная карта",
         aboutInfo: "Как сделать льготный проезд в метро и на наземном транстпорте? И Не только!!! Читай в нашей статье",
         article: ["Как оформить", "Как использовать", "Плюшки", "Что-то еще", "Что-то еще"]

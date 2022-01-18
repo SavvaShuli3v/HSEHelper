@@ -8,7 +8,7 @@
 import UIKit
  
 final class MosCardViewController: UIViewController {
-    private lazy var tableView = UITableView()
+    private lazy var tableView = MosCardTableView()
     
     override func loadView() {
         let view = UIView()

@@ -77,6 +77,7 @@ extension ThemesTableView: UITableViewDataSource {
         switch indexPath.section {
         case 0:
             let cell: ThemeImageTableViewCell = dequeueReusableCell(for: indexPath)
+            cell.setImage(image: themes?.mainImage)
             return cell
         case 1:
             let cell: AboutArticleTableViewCell = dequeueReusableCell(for: indexPath)
@@ -107,7 +108,7 @@ extension ThemesTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
-            return 180
+            return bounds.width
         case 1:
             let main = themes?.mainInfo ?? ""
             let heightOfMain = main.height(
@@ -127,7 +128,7 @@ extension ThemesTableView: UITableViewDelegate {
                 )
             )
         
-            let height = heightOfMain + heightOfAbout + 30
+            let height = heightOfMain + heightOfAbout * 1.1 + 32
             return height
         case 2:
             return 90

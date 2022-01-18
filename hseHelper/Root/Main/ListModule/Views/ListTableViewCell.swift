@@ -16,6 +16,7 @@ final class ListTableViewCell: UITableViewCell {
     private var aboutText: String? {
         willSet {
             aboutLabel.text = newValue
+            aboutLabel.setLineSpacing(lineSpacing: 5)
         }
     }
     
