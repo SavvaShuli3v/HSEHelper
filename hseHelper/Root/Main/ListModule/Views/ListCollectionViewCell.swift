@@ -28,6 +28,7 @@ final class ListCollectionViewCell: UICollectionViewCell {
         addSubview(mainButton)
         addSubview(mainLabel)
         addSubview(clearButton)
+        setConstraints()
         
         mainButton.setAction { [weak self] in
             self?.delegate?.showThemeFromNews()
@@ -50,21 +51,25 @@ final class ListCollectionViewCell: UICollectionViewCell {
             origin: CGPoint(x: 16, y: 8),
             size: CGSize(width: 300, height: 150)
         )
+    }
+    
+    private func setConstraints() {
+        mainLabel.translatesAutoresizingMaskIntoConstraints = false
+        mainLabel.leading(16)
+        mainLabel.width(300)
+        mainLabel.top(10, to: mainImageView.bottomAnchor)
         
-        mainLabel.frame = CGRect(
-            origin: CGPoint(x: 16, y: 165),
-            size: CGSize(width: 300, height: 20)
-        )
+        mainButton.translatesAutoresizingMaskIntoConstraints = false
+        mainButton.top(10, to: mainLabel.bottomAnchor)
+        mainButton.leading(16)
+        mainButton.height(30)
+        mainButton.width(100)
         
-        mainButton.frame = CGRect(
-            origin: CGPoint(x: 16, y: 200),
-            size: CGSize(width: 100, height: 30)
-        )
-        
-        clearButton.frame = CGRect(
-            origin: CGPoint(x: 16, y: 8),
-            size: CGSize(width: 300, height: 180)
-        )
+        clearButton.translatesAutoresizingMaskIntoConstraints = false
+        clearButton.top(8)
+        clearButton.leading(16)
+        clearButton.width(300)
+        clearButton.bottom(to: mainLabel.bottomAnchor)
     }
 }
 
@@ -78,6 +83,7 @@ private func makeMainLabel() -> UILabel {
     let label = UILabel()
     label.backgroundColor = .clear
     label.font = UIFont.systemFont(ofSize: 18, weight: .light)
+    label.numberOfLines = 2
     label.text = "Как сдать БЖД на 10! Новая статья для студентов"
     label.textColor = UIColor.Pallete.black
     return label

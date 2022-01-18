@@ -22,7 +22,7 @@ protocol ListViewInput: AnyObject {
 
 protocol ListViewOutput: AnyObject {
     func viewDidLoad()
-    func showThemeVC()
+    func showThemeVC(with index: Int)
     func showProfileVC()
 }
 
@@ -35,6 +35,6 @@ protocol ListInteractorOutput: AnyObject {
 }
 
 protocol ListRouterInput: AnyObject {
-    func showThemesVC()
+    func showThemesVC(with article: Article)
     func showProfileVC()
 }

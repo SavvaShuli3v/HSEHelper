@@ -74,7 +74,7 @@ extension ListViewController: ListViewInput {
 
 extension ListViewController: ListTableViewDelegate {
     func tappedToCell(with indexPath: IndexPath) {
-        output.showThemeVC()
+        output.showThemeVC(with: indexPath.row)
     }
     
     func scrollViewDidScroll() {

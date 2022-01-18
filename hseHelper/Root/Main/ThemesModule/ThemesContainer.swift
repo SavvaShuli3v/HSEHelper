@@ -13,15 +13,14 @@ final class ThemesContainer {
     private(set) weak var router: ThemesRouterInput!
     
     class func assembly(with context: ThemesModuleContext) -> ThemesContainer {
-        print(context.id)
         let router = ThemesRouter()
         let interactor = ThemesInteractor()
-        let presenter = ThemesPresenter(router: router, interactor: interactor)
+        let article = context.article
+        let presenter = ThemesPresenter(router: router, interactor: interactor, article: article)
         let viewController = ThemesViewController(output: presenter)
     
         presenter.view = viewController
         presenter.moduleOutput = context.moduleOutput
-        presenter.setKey(with: context.id)
         
         interactor.output = presenter
         
@@ -38,7 +37,7 @@ final class ThemesContainer {
 
 struct ThemesModuleContext {
     weak var moduleOutput: ThemesModuleOutput?
-    var id: String
+    var article: Article
 }
 
 

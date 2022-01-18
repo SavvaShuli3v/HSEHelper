@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ListTableViewCellProtocol: AnyObject {
-    func cellTapped()
+    func cellTapped(from: IndexPath?)
 }
 
 final class ListTableViewCell: UITableViewCell {
@@ -19,6 +19,7 @@ final class ListTableViewCell: UITableViewCell {
         }
     }
     
+    private var indexPath: IndexPath?
     private var longTopic = false
         
     private lazy var topicLabel = makeTopicLabel()
@@ -51,6 +52,10 @@ final class ListTableViewCell: UITableViewCell {
             longTopic = true
         }
     }
+    
+    func setIndex(_ indexPath: IndexPath) {
+        self.indexPath = indexPath
+    }
 }
 
 extension ListTableViewCell {
@@ -61,7 +66,7 @@ extension ListTableViewCell {
     
     private func setupButton() {
         animatedButton.setAction { [weak self] in
-            self?.delegate?.cellTapped()
+            self?.delegate?.cellTapped(from: self?.indexPath)
         }
     }
     

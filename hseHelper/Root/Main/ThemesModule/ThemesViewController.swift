@@ -25,6 +25,7 @@ final class ThemesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.Pallete.white
         navigationItem.largeTitleDisplayMode = .never
+        output.viewDidLoad()
         view.addSubview(tableView)
         tableView.answerDelegate = self
     }
@@ -36,7 +37,9 @@ final class ThemesViewController: UIViewController {
 }
 
 extension ThemesViewController: ThemesViewInput {
-    
+    func getArticle(with articleContext: ThemesModel) {
+        tableView.setData(with: articleContext)
+    }
 }
 
 extension ThemesViewController: ThemesTableViewDelegate {

@@ -44,7 +44,7 @@ private func makeButton() -> StartAnimatedButton {
     let button = StartAnimatedButton()
     button.backgroundColor = UIColor.Pallete.lightPurple
     button.setTitle("Читать статью", for: .normal)
-    button.setTitleColor(UIColor.Pallete.black, for: .normal)
+    button.setTitleColor(.white, for: .normal)
     button.layer.cornerRadius = 10
     return button
 }

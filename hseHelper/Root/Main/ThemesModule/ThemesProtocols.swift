@@ -8,8 +8,7 @@
 import Foundation
 
 protocol ThemesModuleInput {
-    func setKey(with id: String)
-    var array: [Int] { get set }
+
 }
 
 protocol ThemesModuleOutput: AnyObject {
@@ -17,11 +16,12 @@ protocol ThemesModuleOutput: AnyObject {
 }
 
 protocol ThemesViewInput: AnyObject {
-    
+    func getArticle(with articleContext: ThemesModel)
 }
 
 protocol ThemesViewOutput: AnyObject {
     func showArticle()
+    func viewDidLoad()
 }
 
 protocol ThemesInteractorInput: AnyObject {

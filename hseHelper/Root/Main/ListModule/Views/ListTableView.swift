@@ -95,6 +95,7 @@ extension ListTableView: UITableViewDataSource {
             let cell: ListTableViewCell = dequeueReusableCell(for: indexPath)
             cell.delegate = self
             cell.setData(with: themes[indexPath.row])
+            cell.setIndex(indexPath)
             return cell
         case 4:
             let cell: FutureTableViewCell = dequeueReusableCell(for: indexPath)
@@ -112,7 +113,7 @@ extension ListTableView: UITableViewDelegate {
         case 0:
             return 60
         case 1:
-            return 250
+            return 260
         case 2:
             return 60
         case 3:
@@ -132,7 +133,11 @@ extension ListTableView: LastNewsTableViewCellProtocol {
 }
 
 extension ListTableView: ListTableViewCellProtocol {
-    func cellTapped() {
-        answerDelegate?.tappedToCell(with: IndexPath(item: 10, section: 10))
+    func cellTapped(from: IndexPath?) {
+        guard let from = from else {
+            preconditionFailure()
+        }
+        answerDelegate?.tappedToCell(with: from)
     }
+
 }

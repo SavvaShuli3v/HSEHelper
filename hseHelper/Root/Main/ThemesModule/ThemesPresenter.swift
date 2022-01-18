@@ -13,16 +13,20 @@ final class ThemesPresenter {
     
     private let router: ThemesRouterInput
     private let interactor: ThemesInteractorInput
+    private let article: Article
     
-    private var key: String?
-    
-    init(router: ThemesRouterInput, interactor: ThemesInteractorInput) {
+    init(router: ThemesRouterInput, interactor: ThemesInteractorInput, article: Article) {
+        self.article = article
         self.router = router
         self.interactor = interactor
     }
 }
 
 extension ThemesPresenter: ThemesViewOutput {
+    func viewDidLoad() {
+        view?.getArticle(with: article.themesModel)
+    }
+    
     func showArticle() {
         router.showArticle()
     }
@@ -33,17 +37,5 @@ extension ThemesPresenter: ThemesInteractorOutput {
 }
 
 extension ThemesPresenter: ThemesModuleInput {
-    var array: [Int] {
-        get {
-            print("get")
-            return []
-        }
-        set {
-            
-        }
-    }
-    
-    func setKey(with id: String) {
-        key = id
-    }
+
 }

@@ -10,26 +10,56 @@ import UIKit
 final class AppCoordinator {
     
     private let window = UIWindow(frame: UIScreen.main.bounds)
-    private let navigationController = MainNavigationController()
+    private let tabBarController = UITabBarController()
+    private let mainNavigationController = MainNavigationController()
+    private let linksNavigationController = MainNavigationController()
     
     func startWithList() {
         window.initTheme()
+        
         let context = ListModuleContext(
-            presentAction: { [weak self] in
-                self?.showThemesVC()
+            presentAction: { [weak self] article in
+                self?.showThemesVC(with: article)
             },
             moduleOutput: nil
         )
         let container = ListContainer.assemble(with: context)
-
-        navigationController.viewControllers = [container.viewController]
-        window.rootViewController = navigationController
+        mainNavigationController.viewControllers = [container.viewController]
+        
+        let linksContainer = ListOfLinksContainer()
+        linksNavigationController.viewControllers = [linksContainer.vc]
+        
+        window.rootViewController = tabBarController
+        tabBarController.setViewControllers(
+            [installationVC(
+                rootViewController: mainNavigationController,
+                title: "Статьи",
+                image: UIImage.init(systemName: "eye.circle") ?? UIImage()
+            ),
+             installationVC(
+                rootViewController: linksNavigationController,
+                title: "Ссылки",
+                image: UIImage.init(systemName: "eye.circle") ?? UIImage()
+             )
+            ]
+        , animated: true)
         window.makeKeyAndVisible()
     }
     
-    func showThemesVC() {
-        let context = ThemesModuleContext(moduleOutput: nil, id: "1")
+    func showThemesVC(with article: Article) {
+        let context = ThemesModuleContext(moduleOutput: nil, article: article)
         let container = ThemesContainer.assembly(with: context)
-        navigationController.pushViewController(container.viewController, animated: true)
+        mainNavigationController.pushViewController(container.viewController, animated: true)
     }
+}
+
+private func installationVC(
+    rootViewController: UIViewController,
+    title: String,
+    image: UIImage
+) -> UIViewController {
+    let rootVC = rootViewController
+    rootVC.tabBarItem.title = title
+    rootVC.tabBarItem.image = image
+    return rootVC
 }

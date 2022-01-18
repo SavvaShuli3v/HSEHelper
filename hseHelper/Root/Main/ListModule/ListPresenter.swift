@@ -13,6 +13,7 @@ final class ListPresenter {
 
     private let router: ListRouterInput
     private let interactor: ListInteractorInput
+    private let dataService = MOCDataService()
 
     init(router: ListRouterInput, interactor: ListInteractorInput) {
         self.router = router
@@ -27,11 +28,15 @@ extension ListPresenter: ListModuleInput {
 extension ListPresenter: ListViewOutput {
     func viewDidLoad() {
         interactor.isAppAlreadyLaunchedOnce()
-        view?.setData(with: data)
+        var themes = [ThemeModel]()
+        for article in dataService.articles {
+            themes.append(article.themeModel)
+        }
+        view?.setData(with: ListModel(themes: themes, futureThemes: futureThemes))
     }
     
-    func showThemeVC() {
-        router.showThemesVC()
+    func showThemeVC(with index: Int) {
+        router.showThemesVC(with: dataService.articles[index])
     }
     
     func showProfileVC() {
@@ -46,18 +51,6 @@ extension ListPresenter: ListInteractorOutput {
         }
     }
 }
-
-
-private let data = ListModel(
-    themes: themes,
-    futureThemes: futureThemes
-)
-
-private let themes = [
-    ThemeModel(themeName: "Сдаем БЖД на 10", additionalInf: "Новое"),
-    ThemeModel(themeName: "Оценки и накоп", additionalInf: "Самое важное"),
-    ThemeModel(themeName: "Rарта Москвича", additionalInf: "В первую очередь"),
-]
 
 private let futureThemes = [
     ThemeModel(themeName: "Все о ЛМС", additionalInf: "Скоро" ),

@@ -15,7 +15,7 @@ protocol ThemesTableViewDelegate: AnyObject {
 final class ThemesTableView: UITableView {
     weak var answerDelegate: ThemesTableViewDelegate?
     
-    private var themes = [ThemeModel]()
+    private var themes: ThemesModel?
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -30,8 +30,9 @@ final class ThemesTableView: UITableView {
         true
     }
     
-    func setData() {
-        
+    func setData(with data: ThemesModel) {
+        themes = data
+        reloadData()
     }
     
     private func setupTableView() {
@@ -66,7 +67,7 @@ extension ThemesTableView: UITableViewDataSource {
         case 3:
             return 1
         case 4:
-            return 6
+            return themes?.article.count ?? 0
         default:
             preconditionFailure()
         }
@@ -79,8 +80,10 @@ extension ThemesTableView: UITableViewDataSource {
             return cell
         case 1:
             let cell: AboutArticleTableViewCell = dequeueReusableCell(for: indexPath)
-            cell.setMainText("Как жить в России")
-            cell.settaskText("")
+            if themes != nil {
+                cell.setMainText(themes?.mainInfo ?? "")
+                cell.settaskText(themes?.aboutInfo ?? "")
+            }
             return cell
         case 2:
             let cell: StartArticleTableViewCell = dequeueReusableCell(for: indexPath)
@@ -92,7 +95,7 @@ extension ThemesTableView: UITableViewDataSource {
             return cell
         case 4:
             let cell: ThemesTableViewCell = dequeueReusableCell(for: indexPath)
-            cell.setData(with: "Article name", indexPath: indexPath)
+            cell.setData(with: themes?.article[indexPath.row] ?? "", indexPath: indexPath)
             return cell
         default:
             preconditionFailure()
@@ -106,17 +109,26 @@ extension ThemesTableView: UITableViewDelegate {
         case 0:
             return 180
         case 1:
-            let text = "hfhfhfhfn"
-            let heightOfText = text.height(
-                constraintedWidth: bounds.width - 204,
+            let main = themes?.mainInfo ?? ""
+            let heightOfMain = main.height(
+                constraintedWidth: bounds.width - 32,
                 font: UIFont.systemFont(
-                    ofSize: 13,
-                    weight: .regular
+                    ofSize: 28,
+                    weight: .bold
+                )
+            )
+            
+            let about = themes?.aboutInfo ?? ""
+            let heightOfAbout = about.height(
+                constraintedWidth: bounds.width - 32,
+                font: UIFont.systemFont(
+                    ofSize: 18,
+                    weight: .light
                 )
             )
         
-            //return heightOfCell
-            return 130
+            let height = heightOfMain + heightOfAbout + 30
+            return height
         case 2:
             return 90
         case 3:
@@ -126,10 +138,6 @@ extension ThemesTableView: UITableViewDelegate {
         default:
             preconditionFailure()
         }
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath)
     }
 }
 
