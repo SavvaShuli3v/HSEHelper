@@ -28,7 +28,7 @@ extension ThemesPresenter: ThemesViewOutput {
     }
     
     func showArticle() {
-        router.showArticle()
+        router.showArticle(from: article.vc)
     }
 }
 

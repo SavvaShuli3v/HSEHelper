@@ -10,7 +10,7 @@ import UIKit
 final class ListViewController: UIViewController {
     private let output: ListViewOutput
     
-    private lazy var profileView = ListProfileView(frame: .zero)
+    private lazy var profileView = NavBarView(image: .init(systemName: "person.crop.circle") ?? .init(named: "person"))
     private lazy var tableView = ListTableView()
 
     init(output: ListViewOutput) {

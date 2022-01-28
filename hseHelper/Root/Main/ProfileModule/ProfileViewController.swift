@@ -8,7 +8,6 @@
 import UIKit
 
 final class ProfileViewController: UIViewController {
-    
     private lazy var tabelView = ProfileTableView()
      
     override func viewDidLoad() {

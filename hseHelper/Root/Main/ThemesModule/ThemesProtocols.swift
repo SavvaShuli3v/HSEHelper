@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ThemesModuleInput {
 
@@ -33,5 +34,5 @@ protocol ThemesInteractorOutput: AnyObject {
 }
 
 protocol ThemesRouterInput: AnyObject {
-    func showArticle()
+    func showArticle(from vc: UIViewController)
 }

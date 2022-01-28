@@ -9,13 +9,10 @@ import UIKit
 
 final class ThemesRouter {
     weak var viewController: UIViewController?
-
 }
 
 extension ThemesRouter: ThemesRouterInput {
-    func showArticle() {
-        //let backItem = UIBarButtonItem(title: "назад", style: .plain, target: nil, action: nil)
-        //viewController?.navigationItem.backBarButtonItem = backItem
-        viewController?.navigationController?.pushViewController(MosCardViewController(), animated: true)
+    func showArticle(from vc: UIViewController) {
+        viewController?.navigationController?.pushViewController(vc, animated: true)
     }
 }

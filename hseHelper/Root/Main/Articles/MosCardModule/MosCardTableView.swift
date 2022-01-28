@@ -33,7 +33,7 @@ final class MosCardTableView: UITableView {
 
 extension MosCardTableView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 4
+        return 8
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,6 +52,22 @@ extension MosCardTableView: UITableViewDataSource {
         case 3:
             let cell: ContainerTableViewCell<HeadingView> = dequeueReusableCell(for: indexPath)
             cell.view.setText(text: model.title1)
+            return cell
+        case 4:
+            let cell: ContainerTableViewCell<SimpleTextView> = dequeueReusableCell(for: indexPath)
+            cell.view.setText(text: model.plus1)
+            return cell
+        case 5:
+            let cell: ContainerTableViewCell<SimpleTextView> = dequeueReusableCell(for: indexPath)
+            cell.view.setText(text: model.plus2)
+            return cell
+        case 6:
+            let cell: ContainerTableViewCell<SimpleTextView> = dequeueReusableCell(for: indexPath)
+            cell.view.setText(text: model.plus3)
+            return cell
+        case 7:
+            let cell: ContainerTableViewCell<SimpleTextView> = dequeueReusableCell(for: indexPath)
+            cell.view.setText(text: model.plus4)
             return cell
         default:
             preconditionFailure()
@@ -88,6 +104,22 @@ extension MosCardTableView: UITableViewDelegate {
             return heightOfText * 1.2
         case 3:
             return 30
+        case 4:
+            let text = model.plus1
+            let height = text.height(constraintedWidth: bounds.width - 32, font: .systemFont(ofSize: 20, weight: .light))
+            return height * 1.2
+        case 5:
+            let text = model.plus2
+            let height = text.height(constraintedWidth: bounds.width - 32, font: .systemFont(ofSize: 20, weight: .light))
+            return height * 1.2
+        case 6:
+            let text = model.plus3
+            let height = text.height(constraintedWidth: bounds.width - 32, font: .systemFont(ofSize: 20, weight: .light))
+            return height * 1.2
+        case 7:
+            let text = model.plus4
+            let height = text.height(constraintedWidth: bounds.width - 32, font: .systemFont(ofSize: 20, weight: .light))
+            return height * 1.2
         default:
             preconditionFailure()
         }
@@ -98,4 +130,8 @@ private struct MosCardModel {
     let name = "Социальная карта - карта Москвича"
     let about = "Оформить социальную карту или карту москвича, как ее еще по-другому называют, может каждый студент очной формы обучения. Да, только очной, студенты, которые обучаются заочно, к сожалению, такой возможности не имеют."
     let title1 = "Что даёт карта?"
+    let plus1 = "1. Льготный проезд на метро"
+    let plus2 = "2. Льготный проезд на наземном общественном транспорте"
+    let plus3 = "3. Запись к врачу (с помощью инфокиосков в поликлинике, к которой ты прикреплен)"
+    let plus4 = "4. Возможность использовать карту - как банковскую, оплачивать покупки, получение стипендии"
 }

@@ -10,6 +10,7 @@ import UIKit
 struct Article {
     var themeModel: ThemeModel
     var themesModel: ThemesModel
+    var vc: UIViewController
 }
 
 final class MOCDataService {
@@ -20,32 +21,46 @@ final class MOCDataService {
     }
 }
 
-private let MOCArticles = [ArticleMOSCard, ArticleLMS]
+private let MOCArticles = [articleMOSCard, articleMinor, articleLMS]
 
-private let ArticleMOSCard = Article(
+private let articleMOSCard = Article(
     themeModel: ThemeModel(
         themeName: "Карта Москвича",
      additionalInf: "Как можно скорее",
-     image: UIImage.init(named: "moskartamini")),
+     image: .init(named: "moskartamini")),
     themesModel: ThemesModel(
-        mainImage: UIImage.init(named: "moskartamini"),
+        mainImage: .init(named: "moskartamini"),
         mainInfo: "Карта Москвича - социальная карта",
         aboutInfo: "Как сделать льготный проезд в метро и на наземном транстпорте? И Не только!!! Читай в нашей статье",
         article: ["Как оформить", "Как использовать", "Плюшки", "Что-то еще", "Что-то еще"]
-    )
+    ),
+    vc: MosCardViewController()
 )
 
-private let ArticleLMS = Article(
+private let articleLMS = Article(
     themeModel: ThemeModel(
         themeName: "Все о ЛМС и Смарт ЛМС",
      additionalInf: nil,
-     image: nil),
+     image: .init(named: "LMSLight")),
     themesModel: ThemesModel(
-        mainImage: nil,
+        mainImage: .init(named: "LMSBig"),
         mainInfo: "Все, что нужно знать о ЛМС и Смарт ЛМС",
         aboutInfo: "Как войти? как использовать? Почему так плохо?) Узнаете ответы на все вопросы уже в этой статье!",
         article: ["Как зайти", "Как использовать", "Плюшки", "Что-то еще", "Что-то еще"]
-    )
+    ),
+    vc: UIViewController()
 )
 
-
+private let articleMinor = Article(
+    themeModel: ThemeModel(
+        themeName: "Майнор - Выбираем лучший",
+     additionalInf: nil,
+     image: .init(named: "minor")),
+    themesModel: ThemesModel(
+        mainImage: .init(named: "moskartamini"),
+        mainInfo: "Майноры",
+        aboutInfo: "Что такое майнор? Как его выбрать и не прогадать?",
+        article: ["Что такое майнор", "Выбираем свой майнор", "Плюшки", "Что-то еще", "Что-то еще"]
+    ),
+    vc: UIViewController()
+)

@@ -15,8 +15,6 @@ final class LargeTextView: UIView {
         super.init(frame: frame)
         backgroundColor = .clear
         addSubview(largeText)
-        largeText.text = text
-        
         largeText.translatesAutoresizingMaskIntoConstraints = false
         largeText.leading(16)
         largeText.trailing(-16)
