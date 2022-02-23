@@ -19,25 +19,25 @@ final class ListOfLinksService {
         ListOfLinksModel(
             nameOfLinks: "LMS",
             links: "",
-            image: nil,
+            image: UIImage.init(named: "hseAn"),
             textColor: .black),
         ListOfLinksModel(
             nameOfLinks: "Smart LMS",
             links: "",
-            image: nil,
+            image: .init(named: "smartLMS"),
             textColor: .black),
         ListOfLinksModel(
-            nameOfLinks: "LMS",
+            nameOfLinks: "Классрум",
+            links: "",
+            image: UIImage.init(named: "classroom2"),
+            textColor: .white),
+        ListOfLinksModel(
+            nameOfLinks: "Outlook",
             links: "",
             image: nil,
             textColor: .black),
         ListOfLinksModel(
-            nameOfLinks: "LMS",
-            links: "",
-            image: nil,
-            textColor: .black),
-        ListOfLinksModel(
-            nameOfLinks: "LMS",
+            nameOfLinks: "Электронные ресурсы ВШЭ = библеотека",
             links: "",
             image: nil,
             textColor: .black)

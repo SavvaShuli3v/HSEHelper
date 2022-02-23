@@ -48,12 +48,13 @@ final class ThemesTableView: UITableView {
         register(TableViewTextCell.self)
         register(StartArticleTableViewCell.self)
         register(AboutArticleTableViewCell.self)
+        register(ContainerTableViewCell<EmptyView>.self)
     }
 }
 
 extension ThemesTableView: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        5
+        6
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -68,6 +69,8 @@ extension ThemesTableView: UITableViewDataSource {
             return 1
         case 4:
             return themes?.article.count ?? 0
+        case 5:
+            return 1
         default:
             preconditionFailure()
         }
@@ -97,6 +100,9 @@ extension ThemesTableView: UITableViewDataSource {
         case 4:
             let cell: ThemesTableViewCell = dequeueReusableCell(for: indexPath)
             cell.setData(with: themes?.article[indexPath.row] ?? "", indexPath: indexPath)
+            return cell
+        case 5:
+            let cell: ContainerTableViewCell<EmptyView> = dequeueReusableCell(for: indexPath)
             return cell
         default:
             preconditionFailure()
@@ -136,6 +142,8 @@ extension ThemesTableView: UITableViewDelegate {
             return 46
         case 4:
             return 62
+        case 5:
+            return 28
         default:
             preconditionFailure()
         }

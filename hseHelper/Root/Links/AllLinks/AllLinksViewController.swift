@@ -7,19 +7,28 @@
 
 import UIKit
 
-final class AllLinksViewController: UIViewController {
-    private lazy var tableView = UITableView()
+final class AllLinksViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupNavigationBar()
         view.backgroundColor = UIColor.Pallete.white
-        view.addSubview(tableView)
+        tableView.backgroundColor = .Pallete.white
+        tableView.register(LinkTableViewCell.self)
+        tableView.separatorStyle = .none
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        tableView.frame = view.bounds
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        20
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: LinkTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+        return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 74
     }
 
     @objc private func closeVCAction(_: Any) {
@@ -29,6 +38,7 @@ final class AllLinksViewController: UIViewController {
 
 private extension AllLinksViewController {
     func setupNavigationBar() {
+        navigationItem.title = "Все ссылки"
         let button = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVCAction))
         navigationItem.rightBarButtonItem = button
     }

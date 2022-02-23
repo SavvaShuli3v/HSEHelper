@@ -21,6 +21,7 @@ final class ListCollectionView: UICollectionView {
         super.init(frame: frame, collectionViewLayout: collectionViewLayout)
         backgroundColor = .clear
         register(ListCollectionViewCell.self)
+        register(HSEAppCollectionCell.self)
         dataSource = self
         delegate = self
         showsHorizontalScrollIndicator = false
@@ -40,19 +41,42 @@ extension ListCollectionView: UICollectionViewDataSource {
         return 3
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell: ListCollectionViewCell = dequeueReusableCell(for: indexPath)
-        cell.delegate = self
-        return cell
+    func collectionView(
+        _ collectionView: UICollectionView,
+        cellForItemAt indexPath: IndexPath
+    ) -> UICollectionViewCell {
+        switch indexPath.row {
+        case 0:
+            let cell: HSEAppCollectionCell = dequeueReusableCell(for: indexPath)
+            return cell
+        case 1...2:
+            let cell: ListCollectionViewCell = dequeueReusableCell(for: indexPath)
+            cell.delegate = self
+            return cell
+        default:
+            preconditionFailure()
+        }
+        
     }
 }
 
 extension ListCollectionView: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        CGSize(width: frame.width - 64, height: frame.height)
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        sizeForItemAt indexPath: IndexPath
+    ) -> CGSize {
+        return CGSize(
+            width: cellWidth,
+            height: frame.height
+        )
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        minimumLineSpacingForSectionAt section: Int
+    ) -> CGFloat {
         return 16
     }
 }
@@ -62,3 +86,5 @@ extension ListCollectionView: ListCollectionViewCellProtocol {
         answerDelegate?.showThemeFromCollection()
     }
 }
+
+private let cellWidth: CGFloat = 326

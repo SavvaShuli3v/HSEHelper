@@ -28,7 +28,7 @@ final class AppCoordinator {
         mainNavigationController.viewControllers = [container.viewController]
         
         let linksContainer = ListOfLinksContainer()
-        linksNavigationController.viewControllers = [linksContainer.vc]
+        linksNavigationController.viewControllers = [linksContainer.assembly()]
         
         let userContainer = UserContainer()
         userNavigationController.viewControllers = [userContainer.vc]

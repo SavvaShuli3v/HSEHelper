@@ -12,8 +12,8 @@ protocol ListCollectionViewCellProtocol: AnyObject {
 }
 
 final class ListCollectionViewCell: UICollectionViewCell {
-    
     weak var delegate: ListCollectionViewCellProtocol?
+    private var content: UIView?
     
     private lazy var mainImageView = makeImageView()
     private lazy var mainLabel = makeMainLabel()
@@ -53,6 +53,10 @@ final class ListCollectionViewCell: UICollectionViewCell {
         )
     }
     
+    func setObject(view: UIView) {
+        
+    }
+    
     private func setConstraints() {
         mainLabel.translatesAutoresizingMaskIntoConstraints = false
         mainLabel.leading(16)
@@ -75,7 +79,7 @@ final class ListCollectionViewCell: UICollectionViewCell {
 
 private func makeImageView() -> UIImageView {
     let imageView = UIImageView()
-    imageView.backgroundColor = UIColor.Pallete.lightGray
+    imageView.backgroundColor = .systemOrange
     return imageView
 }
 

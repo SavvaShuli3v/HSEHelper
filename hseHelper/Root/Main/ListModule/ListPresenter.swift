@@ -46,9 +46,9 @@ extension ListPresenter: ListViewOutput {
 
 extension ListPresenter: ListInteractorOutput {
     func isAppAlreadyLaunchedOnceAnswer(with answer: Bool) {
-        if !answer {
+        //if !answer {
             view?.openIntroOfApp()
-        }
+        //}
     }
 }
 

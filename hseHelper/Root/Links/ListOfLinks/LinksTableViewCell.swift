@@ -27,7 +27,10 @@ final class LinksTableViewCell: UITableViewCell {
     func setLinksObject(_ object: ListOfLinksModel) {
         mainLabel.text = object.nameOfLinks
         mainImageView.image = object.image
-        mainLabel.textColor = object.textColor
+    }
+    
+    func configure(_ imageViewColor: UIColor) {
+        mainImageView.backgroundColor = imageViewColor
     }
     
     override func layoutSubviews() {
@@ -48,13 +51,13 @@ final class LinksTableViewCell: UITableViewCell {
 private func makeImageView() -> UIImageView {
     let imageView = UIImageView()
     imageView.roundCorners(.all, radius: 16)
-    imageView.backgroundColor = .Pallete.lightGray
+    imageView.backgroundColor = .Pallete.white
     return imageView
 }
 
 private func makeMainLabel() -> UILabel {
     let label = UILabel()
-    label.textColor = UIColor.Pallete.black
+    label.textColor = .white
     label.numberOfLines = 0
     label.font = .systemFont(ofSize: 26, weight: .bold)
     return label

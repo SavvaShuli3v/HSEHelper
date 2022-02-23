@@ -33,9 +33,17 @@ private extension ProfileViewController {
         let button = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(closeVCAction))
         navigationItem.rightBarButtonItem = button
     }
+    
+    func updateTableView() {
+        tabelView.updateData()
+    }
 }
 
 extension ProfileViewController: ProfileTableViewDelegate {
+    func aboutDev() {
+        
+    }
+    
     func textUs() {
         
     }
@@ -45,6 +53,36 @@ extension ProfileViewController: ProfileTableViewDelegate {
     }
     
     func changeTheme() {
-        present(ThemePanelVC(), animated: true, completion: nil)
+        showSimpleActionSheet()
+    }
+}
+
+private extension ProfileViewController {
+    func showSimpleActionSheet() {
+        let alert = UIAlertController(title: "Выбор темы приложения", message: nil, preferredStyle: .actionSheet)
+        alert.addAction(UIAlertAction(title: "Светлая тема", style: .default, handler: { (_) in
+            let theme = Theme.light
+            theme.setActive()
+            self.updateTableView()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Темная тема", style: .default, handler: { (_) in
+            let theme = Theme.dark
+            theme.setActive()
+            self.updateTableView()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Как в системе", style: .default, handler: { (_) in
+            let theme = Theme.system
+            theme.setActive()
+            self.updateTableView()
+        }))
+
+        alert.addAction(UIAlertAction(title: "Отменить", style: .cancel, handler: { (_) in
+        }))
+
+        self.present(alert, animated: true, completion: {
+            print("completion block")
+        })
     }
 }

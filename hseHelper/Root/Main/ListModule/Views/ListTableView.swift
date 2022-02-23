@@ -128,7 +128,7 @@ extension ListTableView: UITableViewDelegate {
 
 extension ListTableView: LastNewsTableViewCellProtocol {
     func showThemeFromLastNews() {
-        answerDelegate?.tappedToCell(with: IndexPath(item: 10, section: 10))
+        answerDelegate?.tappedToCell(with: IndexPath(item: 0, section: 0))
     }
 }
 

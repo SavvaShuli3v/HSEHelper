@@ -14,6 +14,7 @@ final class IntroViewController: UIViewController {
     private lazy var aboutAppLabel = makeLabel()
     private lazy var nextButton = makeNextButton()
     private lazy var mainImageView = UIImageView()
+    private lazy var miemImageView = makeMIEM()
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -29,6 +30,8 @@ final class IntroViewController: UIViewController {
         view.addSubview(aboutAppLabel)
         view.addSubview(nextButton)
         view.addSubview(mainImageView)
+        setupMiemImageView()
+        mainImageView.image = .init(named: "myaso")
         
         aboutAppLabel.numberOfLines = 0
         aboutAppLabel.text = "Приложение с курсами, советами и лайфхаками для студентов вышки начальных курсов. \n\nВы узнаете, как оформить социальную карту или выбрать себе майнор, а может лучшее место для фотосъемки внутри вышки?)"
@@ -74,11 +77,20 @@ private extension IntroViewController {
         nextButton.trailing(-16, to: view.trailingAnchor)
         nextButton.height(44)
         
-        mainImageView.backgroundColor = .lightGray
-        mainImageView.leading()
+        mainImageView.backgroundColor = .clear
+        mainImageView.width(200)
         mainImageView.trailing()
         mainImageView.bottom()
-        mainImageView.height(view.bounds.height / 3)
+        mainImageView.height(300)
+    }
+    
+    private func setupMiemImageView() {
+        view.addSubview(miemImageView)
+        miemImageView.translatesAutoresizingMaskIntoConstraints = false
+        miemImageView.bottom()
+        miemImageView.leading(-20)
+        miemImageView.height(300)
+        miemImageView.width(100)
     }
 }
 
@@ -104,4 +116,10 @@ private func makeNextButton() -> IntroNextButton {
     button.layer.cornerRadius = 10
     button.backgroundColor = UIColor.Pallete.lightPurple
     return button
+}
+
+private func makeMIEM() -> UIImageView {
+    let imageView = UIImageView()
+    imageView.image = .init(named: "miem")
+    return imageView
 }

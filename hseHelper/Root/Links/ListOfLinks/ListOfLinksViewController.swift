@@ -8,15 +8,28 @@
 import UIKit
 
 final class ListOfLinksViewController: UITableViewController {
+    private let output: ListOfLinksRouterInput!
+    
     private lazy var servicesView = NavBarView(image: .init(systemName: "list.bullet") ?? .init(named: "person"))
     private let data = ListOfLinksService.data
 
+    init(output: ListOfLinksRouterInput) {
+        self.output = output
+        super.init(style: .plain)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.Pallete.white
         setupNavBar()
         tableView.register(LinksTableViewCell.self)
+        tableView.register(AllLinksTableViewCell.self)
         tableView.separatorStyle = .none
+        servicesView.delegate = self
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,26 +51,57 @@ final class ListOfLinksViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return data.count
+        return data.count + 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: LinksTableViewCell = tableView.dequeueReusableCell(for: indexPath)
-        cell.setLinksObject(data[indexPath.row])
-        return cell
+        switch indexPath.row {
+        case 0..<5:
+            let cell: LinksTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.setLinksObject(data[indexPath.row])
+            cell.configure(.systemBlue)
+            return cell
+        case 5:
+            let cell: AllLinksTableViewCell = tableView.dequeueReusableCell(for: indexPath)
+            cell.delegate = self
+            return cell
+        default:
+            preconditionFailure()
+        }
     }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        view.bounds.width / 1.5
+        switch indexPath.row {
+        case 0..<5:
+            return view.bounds.width / 1.5
+        case 5:
+            return 84
+        default:
+            preconditionFailure()
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        output.showLink()
     }
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard let height = navigationController?.navigationBar.frame.height else { return }
         moveAndResizeImage(for: height)
+    }
+}
+
+extension ListOfLinksViewController: AllLinksTableViewCellAnswer {
+    func tappedToButton() {
+        let navVC = UINavigationController(rootViewController: AllLinksViewController())
+        present(navVC, animated: true, completion: nil)
+    }
+}
+
+extension ListOfLinksViewController: ListProfileViewProtocol {
+    func tappedToProfileButton() {
+        let navVC = UINavigationController(rootViewController: AllLinksViewController())
+        present(navVC, animated: true, completion: nil)
     }
 }
 

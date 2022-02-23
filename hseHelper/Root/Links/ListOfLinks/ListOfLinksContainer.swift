@@ -8,5 +8,10 @@
 import UIKit
 
 final class ListOfLinksContainer {
-    let vc = ListOfLinksViewController()
+    func assembly() -> UIViewController {
+        let router = ListOfLinksRouter()
+        let vc = ListOfLinksViewController(output: router)
+        router.viewController = vc
+        return vc
+    }
 }

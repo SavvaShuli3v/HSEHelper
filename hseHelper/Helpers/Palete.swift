@@ -8,17 +8,15 @@
 import UIKit
 
 extension UIColor {
-    
     struct Pallete {
         static let white = UIColor.color(light: AppColors.white, dark: AppColors.black)
         static let black = UIColor.color(light: .black, dark: .white)
-        static let lightGray = UIColor.color(light: .lightGray, dark: .lightGray)
+        static let lightGray = UIColor.color(light: .gray, dark: .lightGray)
         static let green = UIColor.color(light: .blue, dark: .gray)
         static let lightPurple = UIColor.color(light: AppColors.lightPurple, dark: AppColors.lightPurple)
         static let background = UIColor.color(light: .white, dark: .hex("1b1b1d"))
         static let secondaryBackground = UIColor.color(light: AppColors.white, dark: AppColors.black)
         static let gray = UIColor.color(light: .lightGray, dark: .hex("8e8e92"))
-
     }
 }
 
